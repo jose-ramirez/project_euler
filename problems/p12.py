@@ -20,27 +20,20 @@
 #What is the value of the first triangle number to have over five
 #hundred divisors?
 
+import sys
+sys.path.append('../utils')
+from utils import d
+
 def p12(num_divisors):
     i = 1
     cnt = 0
     while cnt <= num_divisors:
         if i % 2 == 0:
-            cnt = count(i / 2) * count(i + 1)
+            cnt = d(i / 2) * d(i + 1)
         else:
-            cnt = count(i) * count((i + 1) / 2)
+            cnt = d(i) * d((i + 1) / 2)
         i += 1
     return i
-
-def count(n):
-    i = 1
-    res = 0
-    while i ** 2 <= n:
-        if n % i == 0:
-            res += 2
-            if n / i == i:
-                res -= 1
-        i += 1
-    return res
 
 m = p12(500)
 print m * (m - 1) / 2
