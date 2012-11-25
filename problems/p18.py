@@ -43,4 +43,11 @@ def p18(filename):
         sums.append(l)
     return max(sums[-1])
 
-print p18('../data/triangle.in')
+def p18_2(filename):
+    t = to_matrix(filename)
+    t.reverse()
+    return reduce(lambda l1, l2: [l2[i] + max(l1[i], l1[i + 1]) \
+                                      for i in range(len(l2))], t)
+
+print p18('../data/triangle.txt')
+show(p18_2('../data/triangle.txt'))
