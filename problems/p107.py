@@ -20,7 +20,36 @@
 #find the maximum saving which can be achieved by removing redundant edges
 #whilst ensuring that the network remains connected.
 
+import sys
+sys.path.append('../utils')
+from utils import to_matrix, show
+from kruskal import kruskal
+
+def f1(r):
+    a = r.split(',')
+    return [f2(x) for x in a]
+
+def f2(p):
+    if p == '-' or p == '-\n':
+        return 0
+    else:
+        return int(p)
+
+def get_aristas(mat):
+    return [[i, j, mat[i][j]] for i in range(len(mat))
+        for j in range(len(mat[0])) if mat[i][j] != 0]
+
 def p107():
-    return "to be implemented!"
+    lines = open('../data/network.txt').readlines()
+    adj_mat = [f1(row) for row in lines]
+    total = sum([sum(adj_mat[i]) for i in range(len(adj_mat))]) / 2
+    #show(adj_mat)
+    nodos = range(len(adj_mat))
+    aristas = get_aristas(adj_mat)
+    arbol = kruskal(nodos, aristas)
+    s = sum([arbol[i][2] for i in range(len(arbol))])
+    return total - s
+
 
 print p107()
+
