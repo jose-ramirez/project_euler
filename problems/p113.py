@@ -8,16 +8,19 @@
 #a "bouncy" number; for example, 155349.
 #
 #As n increases, the proportion of bouncy numbers below n increases such that
-#there are only 12951 numbers below one-million that are not bouncy and only 
+#there are only 12951 numbers below one-million that are not bouncy and only
 #277032 non-bouncy numbers below 1010.
 #
-#How many numbers below a googol (10100) are not bouncy?
+#How many numbers below a googol (10 ** 100) are not bouncy?
 
 import sys
 sys.path.append('../utils')
 from utils import show
 
-def f1(n, k):
+"""
+    Returns the number of n-digit inc_nums ending in k.
+"""
+def n_digit_inc_num(n, k):
     m = [[0] * (k + 1) for i in range(n + 1)]
     for j in range(k + 1):
         m[1][j] = 1
@@ -27,19 +30,32 @@ def f1(n, k):
             m[n1][k1] = sum([m[n1 - 1][x] for x in range(k1 + 1)])
     return m[n][k]
 
-def inc_num(n):
+"""
+    Returns the number of n-digit inc_nums.
+"""
+def inc_num_count(n):
     return sum([f1(n, k) for k in range(10)])
 
-print sum([inc_num(k) for k in range(2, 7)])
+#print sum([inc_num(k) for k in range(2, 7)])
 
-#print f1(10)
-#def f_test():
-#    contador = 0
-#    for n in range(10 ** 4, 10 ** 5):
-#        a, b, c, d, e = n / 10000, (n / 1000) % 10, (n / 100) % 10, (n / 10) % 10, n % 10
-#        if a <= b and b <= c and c <= d and d <= e:
-#            print n
-#           contador += 1
-#    return contador
 
-#print f1(5), f_test()
+"""
+    Returns the count of non-bouncy numbers below m.
+    it is assumed that m > 100.
+"""
+def count_non_bouncy(m):
+    count = 0
+    for n in range(100, limit):
+        s = [int(d) for d in str(n)]
+        s.insert(0, [True, s[0]])
+        l1 = reduce(lambda x, y: [x[0] & (x[1] <= y), y], s)
+        if l1[0]:
+            count += 1
+            continue
+        l2 = reduce(lambda x, y: [x[0] & (x[1] >= y), y], s)
+        if l2[0]:
+            count += 1
+    return count + 99
+
+#print count_non_bouncy(1000)
+
