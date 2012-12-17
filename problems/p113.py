@@ -76,4 +76,7 @@ total = 0
 for i in range(1, 101):
     total += inc_(i)
     total += dec_(i, m)
+# el 900 es para restar los que son contados 2 veces:
+# los numeros de la forma kkkkk...k salen tanto en la
+#cuenta de dec_nums como en la de inc_nums.
 print total - 9 * 100
