@@ -18,14 +18,28 @@ sys.path.append('../utils')
 from utils import show
 
 """
+    Kronecker delta.
+"""
+def delta(i, j):
+    if i == j:
+        return 1
+    else:
+        return 0
+
+"""
+    Returns true only if lower <= m <= upper.
+"""
+def in_range(m, lower, upper):
+    return m >= lower and m <= upper
+
+"""
     Returns the number of n-digit inc_nums ending in k.
 """
-def n_digit_inc_num(n, k):
+def inc(n, k):
     m = [[0] * (k + 1) for i in range(n + 1)]
     for j in range(k + 1):
-        m[1][j] = 1
-        m[2][j] = j
-    for n1 in range(3, n + 1):
+        m[1][j] = 1 - delta(j, 0)
+    for n1 in range(2, n + 1):
         for k1 in range(k + 1):
             m[n1][k1] = sum([m[n1 - 1][x] for x in range(k1 + 1)])
     return m[n][k]
@@ -33,29 +47,33 @@ def n_digit_inc_num(n, k):
 """
     Returns the number of n-digit inc_nums.
 """
-def inc_num_count(n):
-    return sum([f1(n, k) for k in range(10)])
-
-#print sum([inc_num(k) for k in range(2, 7)])
-
+def inc_(n):
+    return sum([inc(n, k) for k in range(10)])
 
 """
-    Returns the count of non-bouncy numbers below m.
-    it is assumed that m > 100.
+    Returns the matrix containing all the
+    k digit dec_nums, k <= n.
 """
-def count_non_bouncy(m):
-    count = 0
-    for n in range(100, limit):
-        s = [int(d) for d in str(n)]
-        s.insert(0, [True, s[0]])
-        l1 = reduce(lambda x, y: [x[0] & (x[1] <= y), y], s)
-        if l1[0]:
-            count += 1
-            continue
-        l2 = reduce(lambda x, y: [x[0] & (x[1] >= y), y], s)
-        if l2[0]:
-            count += 1
-    return count + 99
+def dec_mat(n):
+    m = [[0] * 10 for i in range(n + 1)]
+    for j in range(10):
+        m[1][j] = 1 - delta(j, 0)
+    for n1 in range(2, n + 1):
+        for k1 in range(10):
+            m[n1][k1] = sum(m[n1 - 1][k1:10])
+    return m
 
-#print count_non_bouncy(1000)
+"""
+    Returns the number of n-digit dec_nums given
+    the matrix used to calculate them.
+"""
+def dec_(n, d_m):
+    return sum([d_m[n][k] for k in range(10)])
 
+m = dec_mat(100)
+
+total = 0
+for i in range(1, 101):
+    total += inc_(i)
+    total += dec_(i, m)
+print total - 9 * 100
