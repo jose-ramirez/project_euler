@@ -28,6 +28,7 @@ def f1(p1, p2):
     return ((((p1 * p2 * s) / r) % p2) * r) + p1
 
 l = [f1(a[i], a[i + 1]) for i in range(2, len(a) - 1) if a[i] < 10 ** 6]
+
 print sum(l)
 #print l
 #print [l[i] % a[i + 3] for i in range(len(l))]
