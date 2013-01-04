@@ -65,8 +65,8 @@ def sopf(n, primes):
 #print sopf(900)
 
 """
-    This is the formula, as given by
-    http://programmingpraxis.com/2012/10/19/prime-partitions/
+    This is the formula for the number of prime partitions of n, as
+    given by http://programmingpraxis.com/2012/10/19/prime-partitions/
 """
 def k(n):
     primes = sieve(n)
