@@ -14,6 +14,7 @@
 import sys
 sys.path.append('../utils')
 from utils import sieve
+
 from bisect import bisect_left
 
 """
