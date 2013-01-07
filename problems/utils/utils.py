@@ -119,7 +119,7 @@ class Utils:
 
     """
         Returns the value of a ** b (mod n), when a ** b
-        is a fucking huge number, like 10 ** (10 ** 9).
+        is a really huge number, like 10 ** (10 ** 9).
     """
     def exp_mod(self, x, y, n):
         if y == 0:
