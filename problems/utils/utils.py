@@ -121,7 +121,7 @@ class Utils:
         Returns the value of a ** b (mod n), when a ** b
         is a fucking huge number, like 10 ** (10 ** 9).
     """
-    def exp_mod(x, y, n):
+    def exp_mod(self, x, y, n):
         if y == 0:
             return 1
         z = exp_mod(x, y / 2, n)
