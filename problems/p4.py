@@ -3,9 +3,8 @@
 #
 #Find the largest palindrome made from the product of two 3-digit numbers.
 
-import sys
-sys.path.append('../utils')
-from utils import palindrome
+from utils import utils
+u = utils.Utils()
 
 def p4():
     max = -1
@@ -13,7 +12,7 @@ def p4():
     for i in range(100, 1000):
         for j in range(100, 1000):
             a = i * j
-            if palindrome(str(a)) and a > max:
+            if u.palindrome(str(a)) and a > max:
                 max = a
     return max
 

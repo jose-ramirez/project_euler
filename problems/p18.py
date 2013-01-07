@@ -26,12 +26,11 @@
 #63 66 04 68 89 53 67 30 73 16 69 87 40 31
 #04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
-import sys
-sys.path.append('../utils')
-from utils import to_matrix, show
+from utils import utils
+u = utils.Utils()
 
 def p18(filename):
-    t = to_matrix(filename)
+    t = u.to_matrix(filename)
     sums = [t[0], [t[0][0] + x for x in t[1]]]
     for i in range(2, len(t)):
         m = len(t[i])
@@ -44,10 +43,10 @@ def p18(filename):
     return max(sums[-1])
 
 def p18_2(filename):
-    t = to_matrix(filename)
+    t = u.to_matrix(filename)
     t.reverse()
     return reduce(lambda l1, l2: [l2[i] + max(l1[i], l1[i + 1]) \
                                       for i in range(len(l2))], t)
 
 print p18('../data/triangle.txt')
-show(p18_2('../data/triangle.txt'))
+u.show(p18_2('../data/triangle.txt'))

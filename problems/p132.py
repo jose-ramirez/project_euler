@@ -6,12 +6,11 @@
 #
 #Find the sum of the first forty prime factors of R(10^9).
 
-import sys
-sys.path.append('../utils')
-from utils import sieve
+from utils import utils
+u = utils.Utils()
 
 """
-    Returns the value of a ** b (mod n), when m
+    Returns the value of a ** b (mod n), when a ** b
     is a fucking huge number, like 10 ** (10 ** 9).
 """
 def exp_mod(x, y, n):
@@ -23,7 +22,8 @@ def exp_mod(x, y, n):
     else:
         return (x * (z ** 2)) % n
 
-l = sieve(2 * (10 ** 5))
+l = u.sieve(2 * (10 ** 5))
+
 count = 0
 total = 0
 for p in l:

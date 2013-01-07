@@ -13,12 +13,11 @@
 #by 80 matrix, from the top left to the bottom right by only moving right
 #and down.
 
-import sys
-sys.path.append('../utils')
-from utils import to_matrix, show
+from utils import Utils
+u = Utils()
 
 def p81():
-    m = to_matrix('../data/matrix.txt', ',')
+    m = u.to_matrix('../data/matrix.txt', ',')
     rows = len(m)
     cols = len(m[0])
     mat = [[0 for j in range(cols)] for i in range(rows)]

@@ -9,9 +9,8 @@
 #What is the first value which can be written as the sum of primes in over five
 #thousand different ways?
 
-import sys
-sys.path.append('../utils')
-from utils import sieve
+from utils import Utils
+u = Utils()
 
 """
     Returns the number of partitions of n with prime elements,
@@ -69,7 +68,7 @@ def sopf(n, primes):
     given by http://programmingpraxis.com/2012/10/19/prime-partitions/
 """
 def k(n):
-    primes = sieve(n)
+    primes = u.sieve(n)
     l =[1, 0]
     for i in range(2, n + 1):
         l1 =[l[r] * sopf(i - r, primes) for r in range(1, i)]

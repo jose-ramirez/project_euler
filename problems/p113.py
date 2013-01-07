@@ -13,9 +13,6 @@
 #
 #How many numbers below a googol (10 ** 100) are not bouncy?
 
-import sys
-sys.path.append('../utils')
-from utils import show
 
 """
     Kronecker delta.

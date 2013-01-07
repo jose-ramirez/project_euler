@@ -8,11 +8,10 @@
 #
 #Find  S for every pair of consecutive primes with 5  p1  1000000.
 
-import sys
-sys.path.append('../utils')
-from utils import sieve
+from utils import Utils
+u = Utils()
 
-a = sieve(1100000)
+a = u.sieve(1100000)
 
 """
     It is assumed that n is a power of 10.

@@ -4,12 +4,11 @@
 #What is the smallest positive number that is evenly divisible
 #by all of the numbers from 1 to 20?
 
-import sys
-sys.path.append('../utils')
-from utils import lcm
+from utils import utils
+u = utils.Utils()
 
 def p5():
-    return reduce(lcm, range(2, 21))
+    return reduce(u.lcm, range(2, 21))
 
 print p5()
-    
+

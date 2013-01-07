@@ -1,4 +1,4 @@
-#In the 2020 grid below, four numbers along a diagonal line have 
+#In the 2020 grid below, four numbers along a diagonal line have
 #been marked in red.
 
 #08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -27,12 +27,11 @@
 #What is the greatest product of four adjacent numbers in any
 #direction (up, down, left, right, or diagonally) in the 20 x 20 grid?
 
-import sys
-sys.path.append('../utils')
-from utils import to_matrix
+from utils import utils
+u = utils.Utils()
 
 def p11():
-    mat = to_matrix('../data/mat.in')
+    mat = u.to_matrix('../data/mat.in')
     m = len(mat)
     n = len(mat[0])
 

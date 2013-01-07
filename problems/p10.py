@@ -2,12 +2,11 @@
 #
 #Find the sum of all the primes below two million.
 
-import sys
-sys.path.append('../utils')
-from utils import sieve
+from utils import utils
+u = utils.Utils()
 
 def p10():
-    return sum(sieve(2000000))
+    return sum(u.sieve(2000000))
 
 print p10()
-    
+

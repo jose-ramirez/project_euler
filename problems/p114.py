@@ -4,6 +4,7 @@
 #exactly seventeen ways of doing this.
 
 #How many ways can a row measuring fifty units in length be filled?
+
 def p114(n):
     l = [1, 1, 1, 2, 4]
     if n < 5:
@@ -15,4 +16,4 @@ def p114(n):
             i += 1
     return l
 
-print p114(50)
+print p114(50)[-1]

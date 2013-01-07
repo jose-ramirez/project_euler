@@ -6,12 +6,11 @@
 #By considering the terms in the Fibonacci sequence whose values do not
 #exceed four million, find the sum of the even-valued terms.
 
-import sys
-sys.path.append('../utils')
-from utils import fib
+from utils import utils
+u = utils.Utils()
 
 def p2(m):
-    a = fib(m)
+    a = u.fib(m)
     return sum([a[i] for i in range(len(a)) if a[i] % 2 == 0])
 
 print p2(4000000)

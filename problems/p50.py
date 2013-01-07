@@ -11,9 +11,8 @@
 #Which prime, below one-million, can be written as the sum of the most
 #consecutive primes?
 
-import sys
-sys.path.append('../utils')
-from utils import sieve
+from utils import utils
+u = utils.Utils()
 
 from bisect import bisect_left
 
@@ -41,7 +40,7 @@ def bi_contains(lst, item):
 
 #initial values:
 k = 2
-p1 = sieve(10 ** 6)
+p1 = u.sieve(10 ** 6)
 pl = k_consecutive_prime_sums(p1, k, 10 ** 6)
 m = len(pl)
 max_k = -1

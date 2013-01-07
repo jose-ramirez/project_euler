@@ -3,11 +3,10 @@
 #
 #What is the 10 001st prime number?
 
-import sys
-sys.path.append('../utils')
-from utils import sieve
+from utils import utils
+u = utils.Utils()
 
 def p7():
-    return sieve(1000000)[10000]
+    return u.sieve(1000000)[10000]
 
 print p7()
