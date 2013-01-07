@@ -124,7 +124,7 @@ class Utils:
     def exp_mod(self, x, y, n):
         if y == 0:
             return 1
-        z = exp_mod(x, y / 2, n)
+        z = self.exp_mod(x, y / 2, n)
         if y % 2 == 0:
             return (z ** 2) % n
         else:
