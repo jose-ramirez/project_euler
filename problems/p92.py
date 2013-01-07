@@ -36,4 +36,4 @@ for n in xrange(1, max + 1):
             total += 1
             break
 
-print max - total + 1
+print total

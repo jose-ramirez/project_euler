@@ -9,25 +9,13 @@
 from utils import utils
 u = utils.Utils()
 
-"""
-    Returns the value of a ** b (mod n), when a ** b
-    is a fucking huge number, like 10 ** (10 ** 9).
-"""
-def exp_mod(x, y, n):
-    if y == 0:
-        return 1
-    z = exp_mod(x, y / 2, n)
-    if y % 2 == 0:
-        return (z ** 2) % n
-    else:
-        return (x * (z ** 2)) % n
 
 l = u.sieve(2 * (10 ** 5))
 
 count = 0
 total = 0
 for p in l:
-    if exp_mod(10, 10 ** 9, p) == 1:
+    if u.exp_mod(10, 10 ** 9, p) == 1:
         count += 1
         if count <= 41 and p != 3:
             total += p
