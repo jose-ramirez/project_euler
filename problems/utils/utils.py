@@ -118,7 +118,7 @@ class Utils:
 
 
     """
-        Returns the value of a ** b (mod n), when a ** b
+        Returns the value of x ** y (mod n), when x ** y
         is a really huge number, like 10 ** (10 ** 9).
     """
     def exp_mod(self, x, y, n):
