@@ -24,7 +24,7 @@ def f(n):
     return total + start * start
 
 """
-    It's still inefficient and incomplete though.
+    It's still inefficient though.
 """
 total = 0
 max = 10 ** 7
