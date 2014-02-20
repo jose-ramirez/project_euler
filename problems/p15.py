@@ -1,9 +1,15 @@
+#Starting in the top left corner of a 2x2 grid, and only being able to move to
+#the right and down, there are exactly 6 routes to the bottom right corner.
+#
+#How many such routes are there through a 20x20 grid?
+
 from utils import Utils
 
-def binom(n, k):
-    m = [[0] * (k + 1)] * (n + 1)
-    return m
+def p15():
+    u = Utils()
+    print u.binom(40, 20)
 
-u = Utils()
-u.show(binom(4, 3))
+p15()
+
+
 

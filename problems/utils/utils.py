@@ -3,6 +3,24 @@ from operator import itemgetter
 
 class Utils:
     """
+        Calculates the binomial coefficient nCk.
+    """
+    def binom(self, n, k):
+        m = [[0 for c in range (k + 1)] for r in range(n + 1)]
+        #que diferencia hay entre esto y [[0] * (k + 1)] * (n + 1) ?
+        #init:
+        for i in range(n + 1):
+            for j in range(k + 1):
+                if i == j or j == 0:
+                    m[i][j] = 1
+
+        #calculating:
+        for i in range(1, n + 1):
+            for j in range(1, k + 1):
+                m[i][j] = m[i - 1][j - 1] + m[i - 1][j]
+        return m[n][k]
+
+    """
         Returns the sum of all numbers up to n.
     """
     def sum_up_to(self, n):
