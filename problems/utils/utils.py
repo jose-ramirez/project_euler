@@ -1,5 +1,6 @@
 from fractions import gcd
 from operator import itemgetter
+import time
 
 class Utils:
     """
@@ -147,6 +148,18 @@ class Utils:
             return (z ** 2) % n
         else:
             return (x * (z ** 2)) % n
+
+    """
+        Retorna el tiempo de ejecucion de la funcion que se le pasa como
+        argumento en segundos.
+        Pa la libreria; resvisar compatibilidad con versiones
+        antiguas de python:
+    """
+    def exec_time(self, function):
+        init = time.time()
+        function()
+        end = time.time()
+        print("exec time: " + str(end - init) + " seconds")
 
 class DisjointSet(dict):
 
