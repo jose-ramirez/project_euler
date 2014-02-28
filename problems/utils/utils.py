@@ -49,7 +49,7 @@ class Utils:
         Taken from
         http://code.activestate.com/recipes/577228-sieve-of-eratosthenes-python/
     """
-    def sieve(self, n):
+    def sieve(self, n=100):
         sqrtn = int(n**0.5)
         sieve = [True] * (n+1)
         sieve[0] = False
@@ -60,7 +60,7 @@ class Utils:
                 sieve[i*i:n+1:i] = [False] * (m+1)
         sieve = [i for i in range(n+1) if sieve[i]]
         return sieve
-    #print sieve(100)
+    #print(sieve(100))
 
     """
         Returns whether a word (assumed
@@ -68,7 +68,7 @@ class Utils:
     """
     def palindrome(self, s):
         return s == s[::-1]
-    #print palindrome(str(998801))
+    #print(palindrome(str(998801)))
 
     """
         Returns the lcm of two numbers.
@@ -88,21 +88,21 @@ class Utils:
         f = open(filename, 'r')
         #para llamar a las funciones de una clase dentro de ellas, usar self!:
         return [map(self.f1, row.strip('\n').split(separator)) for row in f.readlines()]
-    #print to_matrix('../data/mat.in')
+    #print(to_matrix('../data/mat.in'))
 
     """
         Prints a matrix to the screen.
     """
     def show(self, matrix):
         for row in range(len(matrix)):
-            print matrix[row]
+            print(matrix[row])
 
     """
         Prints the matrix's dimensions, assuming all rows
         have the same length:
     """
     def size(self, name, matrix):
-        print '%s\'s size: (%d, %d)' %(name, len(matrix),len(matrix[0]))
+        print('%s\'s size: (%d, %d)' %(name, len(matrix),len(matrix[0])))
 
     """
         Returns a number representation of the number
