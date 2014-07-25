@@ -1,0 +1,6 @@
+*)  Encontrar la foto que muestra mi progreso en project
+    euler si todavia existe.
+
+*)  Si existe la imagen, completar los problemas ya
+    hechos para tener el repositorio "completo" mientras
+    se arregla la situacion de la gente de projecteuler.net
