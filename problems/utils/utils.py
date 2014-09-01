@@ -150,16 +150,35 @@ class Utils:
             return (x * (z ** 2)) % n
 
     """
-        Retorna el tiempo de ejecucion de la funcion que se le pasa como
-        argumento en segundos.
-        Pa la libreria; resvisar compatibilidad con versiones
-        antiguas de python:
+        Retorna el tiempo de ejecucion de la funcion que se
+        le pasa como argumento en segundos. Pa la libreria;
+        resvisar compatibilidad con versiones antiguas de
+        python:
     """
     def exec_time(self, function):
         init = time.time()
         function()
         end = time.time()
         print("exec time: " + str(end - init) + " seconds")
+
+    """
+        Retorna order(a, n), el menor entero k que cumple
+        que a^k = 1 (mod n). Tiende a ser ineficiente a
+        medida que los valores crecen, pero cumple con su
+        objetivo si le das la oportunidad :)
+    """
+    def order(self, a, n):
+        from fractions import gcd
+        order = 0
+        if(gcd(a, n) > 1):
+            return order
+        else:
+            order = 1
+            mod_exp = a
+            while mod_exp != 1:
+                order += 1
+                mod_exp = (a * mod_exp) % n
+        return order
 
 class DisjointSet(dict):
 
