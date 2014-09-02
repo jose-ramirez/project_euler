@@ -180,6 +180,48 @@ class Utils:
                 mod_exp = (a * mod_exp) % n
         return order
 
+    """
+        Self made iterative binary search :)
+        It is assumed that data is an ordered list. returns the
+        index of val in data if val if found, else returns -1.
+    """
+    def chop(self, val, data):
+
+        #the indices we'll be using to narrow our search:
+        a, b = 0, len(data) - 1
+
+        #we need to have enough data to make the testing:
+        while b - a + 1 > 0:
+            
+            #update m to calculate the right address:
+            m = b - a + 1
+
+            #our suspect might be here in this position:
+            pos = a + (m / 2)
+
+            #found it! return the original index:
+            if data[pos] == val:
+                return pos
+
+            #might be on the left side of the array:
+            elif data[pos] > val:
+                b = pos - 1
+
+            #might be on the right side:
+            else:
+                a = pos + 1
+
+        #here we also found nothing, since we ended up with a
+        #pair of indices that can't be interpreted as the
+        #extremes of an array:
+        return -1
+
+    """
+        The nth pentagonal number.
+    """
+    def pentagonal(self, n):
+        return n * (3 * n - 1) / 2
+
 class DisjointSet(dict):
 
     def add(self, item):
