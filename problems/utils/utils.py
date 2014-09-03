@@ -7,8 +7,10 @@ class Utils:
         Calculates the binomial coefficient nCk.
     """
     def binom(self, n, k):
-        m = [[0 for c in range (k + 1)] for r in range(n + 1)]
-        #que diferencia hay entre esto y [[0] * (k + 1)] * (n + 1) ?
+        #que diferencia hay entre esto y [[0] * (k + 1)] * (n + 1)?:
+        m = [[0 for c in range (k + 1)]
+            for r in range(n + 1)]
+
         #init:
         for i in range(n + 1):
             for j in range(k + 1):
@@ -86,8 +88,11 @@ class Utils:
     """
     def to_matrix(self, filename, separator = ' '):
         f = open(filename, 'r')
-        #para llamar a las funciones de una clase dentro de ellas, usar self!:
-        return [map(self.f1, row.strip('\n').split(separator)) for row in f.readlines()]
+        #para llamar a las funciones de una clase dentro de
+        #ellas, usar self!:
+        return [map(self.f1,
+            row.strip('\n').split(separator)) 
+            for row in f.readlines()]
     #print(to_matrix('../data/mat.in'))
 
     """
@@ -102,7 +107,8 @@ class Utils:
         have the same length:
     """
     def size(self, name, matrix):
-        print('%s\'s size: (%d, %d)' %(name, len(matrix),len(matrix[0])))
+        print('%s\'s size: (%d, %d)'
+            %(name, len(matrix),len(matrix[0])))
 
     """
         Returns a number representation of the number
