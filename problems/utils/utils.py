@@ -222,6 +222,20 @@ class Utils:
     def pentagonal(self, n):
         return n * (3 * n - 1) / 2
 
+    """
+        Returns the power sum of n, i.e., if n = abcd...
+        in base b (here b defaults to 10), then
+        power_sum(n, exp, b) returns sum{a^exp}, taking the
+        sum over all of n's digits.
+    """
+    def power_sum(self, n, exp, b = 10):
+        total = 0
+        while n >= b:
+            d = n % b
+            total += d ** exp
+            n /= b
+        return total + n ** exp
+
 class DisjointSet(dict):
 
     def add(self, item):
