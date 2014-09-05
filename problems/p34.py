@@ -7,30 +7,39 @@
 #Note: as 1! = 1 and 2! = 2 are not sums they are not
 #included.
 
-def factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return reduce(lambda x, y: x * y, xrange(1, n + 1))
-
-def factorial_sum(n, factorial_list):
-    total = 0
-    while n >= 10:
-        d = n % 10
-        total += factorial_list[d]
-        n /= 10
-    return total + factorial_list[n]
+from utils import Utils
 
 #Hasta 10^6, porque ya se cuanto da la suma, y no necesito
 #llegar tan lejos; pero en realidad hay que testar hasta
 #10^7, que es lo que la matematica te da como estimado para
-#estar seguro de que el resultado esta certo:
+#estar seguro de que el resultado final estara certo:
 def p34():
-    factorial_list = [factorial(n) for n in range(10)]
+    u = Utils()
+    factorial_list = [u.factorial(n) for n in range(10)]
     total = 0
-    for n in range(3, 10 ** 6):
-        if n == factorial_sum(n, factorial_list):
+    for n in range(3, 10 ** 7):
+        if n == u.factorial_sum(n, factorial_list):
             total += n
-    return total
+    print total
 
-print p34()
+#Esta forma es mas rapida, aunque necesita muuucha mas
+#memoria:
+def p34_():
+    u = Utils()
+    total = 0
+    m = 10
+    l = []
+    facts = [u.factorial(j) for j in range(10)]
+    for f in facts:
+        l.append(f)
+    while m < 10 ** 7:
+        l.append(l[m / 10] + facts[m % 10])
+        if m == l[m]:
+            total += m
+        m += 1
+    print total
+
+u = Utils()
+
+u.exec_time(p34)
+u.exec_time(p34_)

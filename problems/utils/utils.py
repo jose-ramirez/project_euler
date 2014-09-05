@@ -242,6 +242,28 @@ class Utils:
             n /= b
         return total + n ** exp
 
+    """
+        The very well known factorial function. Given n,
+        returns n! for n >= 0.
+    """
+    def factorial(self, n):
+        if n == 0:
+            return 1
+        else:
+            return reduce(lambda x, y: x * y, xrange(1, n + 1))
+
+    """
+        Given n = abcd...e returns sum{a!}, where the sum
+        is taken over all of n's digits.
+    """
+    def factorial_sum(self, n, factorial_list):
+        total = 0
+        while n >= 10:
+            d = n % 10
+            total += factorial_list[d]
+            n /= 10
+        return total + factorial_list[n]
+
 class DisjointSet(dict):
 
     def add(self, item):
