@@ -20,7 +20,7 @@ def p34():
     for n in range(3, 10 ** 7):
         if n == u.factorial_sum(n, factorial_list):
             total += n
-    print total
+    return total
 
 #Esta forma es mas rapida, aunque necesita muuucha mas
 #memoria:
@@ -37,9 +37,11 @@ def p34_():
         if m == l[m]:
             total += m
         m += 1
-    print total
+    return total
 
-u = Utils()
+print p34()
 
-u.exec_time(p34)
-u.exec_time(p34_)
+#time benchmarking, memoization dominates:
+#u = Utils()
+#u.exec_time(p34)
+#u.exec_time(p34_)
