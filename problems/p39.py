@@ -22,7 +22,7 @@ def count_solutions(p):
 def p39():
     max_count = -1
     perimeter = -1
-    for p in range(3, 1001):
+    for p in range(4, 1001, 2):
         m = count_solutions(p)
         if m > max_count:
             max_count = m
