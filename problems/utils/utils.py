@@ -225,9 +225,20 @@ class Utils:
     """
         The nth pentagonal number.
     """
-    def pentagonal(self, n):
+    def p(self, n):
         return n * (3 * n - 1) / 2
 
+    """
+        The nth triangular number.
+    """
+    def t(self, n):
+        return n * (n + 1) / 2
+
+    """
+        The nth hexagonal number.
+    """
+    def h(self, n):
+        return n * (2 * n - 1)
     """
         Returns the power sum of n, i.e., if n = abcd...
         in base b (here b defaults to 10), then
