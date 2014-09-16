@@ -11,8 +11,8 @@
 #Which prime, below one-million, can be written as the sum of the most
 #consecutive primes?
 
-from utils import utils
-u = utils.Utils()
+from utils import Utils
+u = Utils()
 
 from bisect import bisect_left
 
@@ -37,22 +37,26 @@ def bi_contains(lst, item):
     # item is in the list then it has to be at index bisect_left(lst, item)
     return (item <= lst[-1]) and (lst[bisect_left(lst, item)] == item)
 
+import time
 
-#initial values:
-k = 2
-p1 = u.sieve(10 ** 6)
-pl = k_consecutive_prime_sums(p1, k, 10 ** 6)
-m = len(pl)
-max_k = -1
+def p50():
+    #initial values:
+    k = 2
+    p1 = u.sieve(10 ** 6)
+    pl = k_consecutive_prime_sums(p1, k, 10 ** 6)
+    m = len(pl)
+    max_k = -1
+    p_k = 0
 
-#creating the k-prime sums given the (k - 1)-prime sums:
-while m > 0:
-    m = len(pl) - 1
-    pl = [pl[i] + p1[i + k] for i in range(m) if pl[i] + p1[i + k] < 10 ** 6]
-    k += 1
-    for prime in pl:
-        if bi_contains(p1, prime) and k > max_k:
-            max_k = k
-            print prime, k
+    #creating the k-prime sums given the (k - 1)-prime sums:
+    while m > 0:
+        m = len(pl) - 1
+        pl = [pl[i] + p1[i + k] for i in range(m) if pl[i] + p1[i + k] < 10 ** 6]
+        k += 1
+        for prime in pl:
+            if bi_contains(p1, prime) and k > max_k:
+                max_k = k
+                p_k = prime
+    print max_k, p_k
 
-print max_k
+u.exec_time(p50)
