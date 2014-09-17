@@ -21,7 +21,7 @@ class Utils:
         for i in range(1, n + 1):
             for j in range(1, k + 1):
                 m[i][j] = m[i - 1][j - 1] + m[i - 1][j]
-        return m[n][k]
+        return m, m[n][k]
 
     """
         Returns the sum of all numbers up to n.
