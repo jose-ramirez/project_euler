@@ -68,7 +68,7 @@ class Utils:
         Returns whether a word (assumed
         without whitespaces) is palindrome.
     """
-    def palindrome(self, s):
+    def is_palindrome(self, s):
         return s == s[::-1]
     #print(palindrome(str(998801)))
 
