@@ -8,7 +8,8 @@
 #
 #That is, 3 + 7 + 4 + 9 = 23.
 #
-#Find the maximum total from top to bottom of the triangle below:
+#Find the maximum total from top to bottom of the triangle
+#below:
 #
 #75
 #95 64
@@ -41,12 +42,11 @@ def p18(filename):
         l.append(sums[i - 1][-1] + t[i][-1])
         sums.append(l)
     return max(sums[-1])
-
 def p18_2(filename):
     t = u.to_matrix(filename)
     t.reverse()
     return reduce(lambda l1, l2: [l2[i] + max(l1[i], l1[i + 1]) \
                                       for i in range(len(l2))], t)
 
-print p18('../data/triangle.txt')
-u.show(p18_2('../data/triangle.txt'))
+print p18('../data/p18_triangle.in')
+print p18('../data/p67_triangle.in')
