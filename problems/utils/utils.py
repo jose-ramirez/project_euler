@@ -275,6 +275,33 @@ class Utils:
             n /= 10
         return total + factorial_list[n]
 
+    """
+        Partition function, according to a recurrence due
+        to Euler. Returns a list with all values of
+        parts(k) for k up to n.
+    """
+    def parts(self, n):
+        #initial values for parts(n):
+        l = [1, 1, 2]
+        i = 3
+        for i in range(3, n + 1):
+            #initial values for the indices:
+            k, k_ = 1, -1
+            total = 0
+            ind = 0
+            a, a_, p_ = i - self.p(k), i - self.p(k_), (-1) ** ind
+            indices_valid = a >= 0 or a_ >= 0
+            #calculate next value:
+            while indices_valid:
+                total += p_ * (l[a] * (a >= 0) + l[a_] * (a_ >= 0))
+                #update indices:
+                k, k_, ind = k + 1, k_ - 1, ind + 1
+                a, a_, p_ = i - self.p(k), i - self.p(k_), (-1) ** ind
+                indices_valid = a >= 0 or a_ >= 0
+            #add value to list:
+            l.append(total)
+        return l
+
 class DisjointSet(dict):
 
     def add(self, item):
