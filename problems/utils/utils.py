@@ -291,7 +291,7 @@ class Utils:
             ind = 0
             a, a_, p_ = i - self.p(k), i - self.p(k_), (-1) ** ind
             indices_valid = a >= 0 or a_ >= 0
-            #calculate next value:
+            #calculate next value for partition function:
             while indices_valid:
                 total += p_ * (l[a] * (a >= 0) + l[a_] * (a_ >= 0))
                 #update indices:

@@ -17,7 +17,8 @@ u = Utils()
 
 def p76():
     #we subtract 1 since we're only considering partitions
-    #with more than one part:
+    #with more than one part, so the number itself doesn't
+    #count as a valid partition:
     print u.parts(100)[-1] - 1
 
 u.exec_time(p76)
