@@ -302,6 +302,73 @@ class Utils:
             l.append(total)
         return l
 
+    """
+        Cross product for 2d vectors, seen as 3d vectors with
+        z component equal to 0.
+    """
+    def cross_2d(self, v1, v2):
+        return [0, 0, v1[0] * v2[1] - v1[1] * v2[0]]
+
+    """
+        Dot product for arbitrary n-dimensional vectors.
+    """
+    def dot(self, v1, v2):
+        return sum(v1[i] * v2[i] for i in range(len(v1)))
+
+    """
+        Returns the vector joining points p1 towards p2.
+    """
+    def vec(self, p2, p1):
+        return [p1[i] - p2[i] for i in range(len(p1))]
+
+    """
+        Returns True if points p1, p2 are on the same side of
+        the line joining a and b.
+    """
+    def same_side(self, p1, p2, a, b):
+        cp1 = self.cross_2d(self.vec(b, a), self.vec(p1, a))
+        cp2 = self.cross_2d(self.vec(b, a), self.vec(p2, a))
+        return self.dot(cp1, cp2) >= 0
+
+    """
+        Returns True if the point P is inside the triangle
+        defined by t.
+        Taken from the following page:
+        http://www.blackpawn.com/texts/pointinpoly/
+    """
+    def in_triangle(self, p, t):
+        a = t[0]
+        b = t[1]
+        c = t[2]
+        return self.same_side(p, a, b, c) and\
+            self.same_side(p, b, a, c) and\
+            self.same_side(p, c, a, b)
+
+    """
+        Prime counting function. It depends on already having a
+        precomputed list of primes.
+    """
+    def pi(self, n, prime_list):
+        return bisect(prime_list, n) + 1
+
+    """
+        Counts all the semiprimes below n. Slows down as n
+        becomes larger. Haven't proved whether the output
+        is correct all the time or not:
+    """
+    def semiprimes(self, n):
+        p_l = self.sieve(n)
+        total = 0
+        for p in p_l:
+            if p < int(sqrt(n)) + 1:
+                total += self.pi(int(n / p), p_l) - \
+                    self.pi(p, p_l) + 1
+            else:
+                break
+        print total
+
+    #semiprimes(500000)
+
 class DisjointSet(dict):
 
     def add(self, item):
