@@ -1,0 +1,3 @@
+*)  Implement the hungarian algorithm by hand, without
+    installing any module, in order to solve p345.
+    Apparently, it can be solved using DP.
