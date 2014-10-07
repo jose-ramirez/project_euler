@@ -3,7 +3,7 @@
 #and legs, L = 17.
 #
 #By using the Pythagorean theorem it can be seen that the
-#height of the triangle, h = √(172 − 82) = 15, which is
+#height of the triangle, h = √(17^2 − 8^2) = 15, which is
 #one less than the base length.
 #
 #With b = 272 and L = 305, we get h = 273, which is one more
@@ -18,13 +18,25 @@ from utils import Utils
 u = Utils()
 
 def p138():
-    a, b = 76, 17
+    """
+        Here the problem was reduced to the following Pell
+        equation:
+
+        (5b ± 4)^2 - 20L^2 = -4,
+        
+        with solutions given by the following recurrences:
+        (a_0, L_0) = (16, 17),
+        (a_{k + 1}, L_{k + 1}) =
+            (9 * a_k + 40 * L_k, 2 * a_k + 9 * L_k),
+        with a_k = 5b_k ± 4 \forall k \geq 0.
+    """
+    a, L = 76, 17
     num_triangles = 1
     total = b
     while num_triangles < 12:
-        a, b = 9 * a + 40 * b, 2 * a + 9 * b
+        a, L = 9 * a + 40 * L, 2 * a + 9 * L
         if a % 5 == 1 or a % 5 == 4:
-            total += b
+            total += L
             num_triangles += 1
     print total
 
