@@ -69,9 +69,9 @@ def p101():
         (http://en.wikipedia.org/wiki/Polynomial_interpolation),
         we found the following formula for BOP(k):
 
-        BOP(k) = sum_1^l{(-1)^{l + r}{k \ choose {l - 1}}u_l},
-
-        so, it was just a matter of implementing it:
+        BOP(k) = \sum_1^l{(-1)^{l + r}{k \choose {l - 1}}u_l},
+        where n \equiv r \pmod 2, so, it was just a matter
+        of implementing the sum:
     """
     print sum([fit(l) for l in range(1, len(U))])
 
