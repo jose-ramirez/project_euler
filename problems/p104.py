@@ -34,7 +34,6 @@ def p104():
         a, b = (a + b) % (10 ** 9), a % (10 ** 9)
         f *= Decimal(phi)
         m = str(f)[:10].replace('.', '')
-        mantissa = float(m)
         i += 1
     print i
 
