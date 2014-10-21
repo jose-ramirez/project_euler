@@ -1,6 +1,9 @@
+
 from fractions import gcd
 from operator import itemgetter
 import time
+import math
+from math import sin, cos, atan, sqrt
 
 class Utils:
     """
@@ -368,6 +371,103 @@ class Utils:
         print total
 
     #semiprimes(500000)
+
+    """
+        Matrix and vector product.
+    """
+    def mul(self, mat, vec):
+        res = []
+        rows = len(mat)
+        cols = len(mat[0])
+        for i in range(rows):
+            r = mat[i]
+            res.append(sum([r[k] * vec[k] for k in range(cols)]))
+        return res
+
+    """
+        Vector sum.
+    """
+    def add(self, v1, v2):
+        return [v1[k] + v2[k] for k in range(len(v1))]
+
+    """
+        Vector difference.
+    """
+    def sub(self, v1, v2):
+        return [v1[k] - v2[k] for k in range(len(v1))]
+
+    """
+        Matrix deifference.
+    """
+    def subm(self, m1, m2):
+        m = []
+        rows = len(m1)
+        for i in range(rows):
+            m.append(self.sub(m1[i], m2[i]))
+        return m
+
+    """
+        Rotates the point p theta degrees centered at
+        p0.
+    """
+    def rotate(self, p, p0 = [0, 0], theta = math.pi / 2):
+        mat = [[cos(theta), sin(theta)], [-sin(theta), cos(theta)]]
+        return self.add(self.mul(mat, self.sub(p, p0)), p0)
+
+    """
+        The idea here is to rotate a line, thus returning the
+        parametric coefficients for x and y:
+    """
+    def rotate_line(self, m, b, r0, theta):
+        M = [[cos(theta), -sin(theta)], [sin(theta), cos(theta)]]
+        m_ = self.mul(M, m)
+        N = self.subm([[1, 0], [0, 1]], M)
+        b_ = self.add(self.mul(M, b), self.mul(N, r0))
+        return m_, b_
+
+    """
+        Solve the quadratic equation ax^2 + bx + c = 0.
+    """
+    def solve_quadratic(self, a, b, c):
+        d = sqrt((b ** 2) - (4 * a * c))
+        return (-b - d) / (2 * a), (-b + d) / (2 * a)
+
+    """
+        Return line equation:
+    """
+    def get_line_equation(self, p, p0):
+        mr = [1, (p0[1] - p[1]) / (p0[0] - p[0])]
+        br = [0, p0[1] - (mr[1] * p0[0])]
+        return mr, br
+
+    """
+        Return True iff p is in the line defined by m and b:
+    """
+    def is_in_line(self, m, b, p, tol = 1e-6):
+        c1 = (p[0] - b[0]) / m[0]
+        c2 = (p[1] - b[1]) / m[1]
+        return abs(c1 - c2) < tol
+
+    """
+        Gets the coordinates of a point in a given line,
+        and the parameter t that generates it.
+    """
+    def get_point(self,m, b, t):
+        return [m[0] * t + b[0],
+                m[1] * t + b[1]]
+
+### Some testing for the geometry functions:
+#multiply matrix and vector; result should equal [-1, 1]:
+#print mul([[0 , -1], [1, 0]], [1, 1])
+#
+#subtract 2 matrices; should return [[0, 0], [0, 0]]:
+#print subm([[1, 0], [0, 1]], [[1, 0], [0, 1]])
+#
+#rotate 90 degs counterclockwise, should print [1, 2]:
+#print rotate([2, 1], [1, 1])
+#
+#get equation of rotated line; should return [-1, 1], [4, -2]
+#print rotate_line([1, 1], [0, -2], [2, 0], math.pi / 2)
 
 class DisjointSet(dict):
 
