@@ -373,6 +373,25 @@ class Utils:
     #semiprimes(500000)
 
     """
+      Dictionary with prime factors of m and its exponents:
+    """    
+    def divisors_dict(self, m, primes):
+      vals = {}
+      for p in primes:
+        if m == 1:
+          return vals
+        if m % p != 0:
+          continue
+        else:
+          m = m / p
+          total = 1
+          while m % p == 0:
+            total += 1
+            m = m / p
+          vals.update({str(p): total})
+      return vals
+
+    """
         Matrix and vector product.
     """
     def mul(self, mat, vec):
@@ -502,3 +521,33 @@ class Algorithms:
                 if sz == 0:
                     return mst
                 forest.union(t1, t2)
+
+class Poly:
+  def __init__(self, p):
+    self.p = p
+    self.deg = len(self.p) - 1
+
+  def coeff(self, i):
+    if i > self.deg:
+      return 0
+    else:
+      return self.p[self.deg - i]
+
+  def c(self, p2, r):
+    total = 0
+    if r == 0:
+      return self.coeff(0) * p2.coeff(0)
+    else:
+      for i in range(r + 1):
+        total += self.coeff(i) * p2.coeff(r - i)
+    return total
+
+  def mul(self, p2):
+    l = [self.c(p2, i) for i in range(self.deg + p2.deg + 1)]
+    return Poly(l[::-1])
+
+  def pow(self, exp):
+    if exp == 1:
+      return self
+    else:
+      return self.mul(self.pow(exp - 1))
