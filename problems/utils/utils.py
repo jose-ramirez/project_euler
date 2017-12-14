@@ -368,7 +368,7 @@ class Utils:
                     self.pi(p, p_l) + 1
             else:
                 break
-        print total
+        print(total)
 
     #semiprimes(500000)
 
