@@ -1,4 +1,3 @@
-
 from fractions import gcd
 from operator import itemgetter
 import time
