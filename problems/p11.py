@@ -27,11 +27,11 @@
 #What is the greatest product of four adjacent numbers in any
 #direction (up, down, left, right, or diagonally) in the 20 x 20 grid?
 
-from utils import utils
+from context import utils
 u = utils.Utils()
 
 def p11():
-    mat = u.to_matrix('../data/mat.in')
+    mat = u.to_matrix('data/mat.in')
     m = len(mat)
     n = len(mat[0])
 
@@ -51,6 +51,6 @@ def p11():
     l4 = [[mat[i][j + 3] * mat[i + 1][j + 2] * mat[i + 2][j + 1] * mat[i + 3][j] \
     for j in range(n - 3)] for i in range(m - 3)]
 
-    return max(map(lambda r: max(map(max, r)) , [l1, l2, l3, l4]))
+    return max(list(map(lambda r: max(map(max, r)) , [l1, l2, l3, l4])))
 
-print p11()
+print(p11())

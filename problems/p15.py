@@ -3,13 +3,10 @@
 #
 #How many such routes are there through a 20x20 grid?
 
-from utils import Utils
+from context import f
 
 def p15():
-    u = Utils()
-    print u.binom(40, 20)
+    mat, val = f.binom(40, 20)
+    return val
 
-p15()
-
-
-
+print(p15())

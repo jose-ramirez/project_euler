@@ -21,13 +21,13 @@
 #05886116467109405077541002256983155200055935729725
 #71636269561882670428252483600823257530420752963450
 
-from utils import utils
+from context import utils
 u = utils.Utils()
 
 def p8():
-    n = u.to_number('../data/number.in')
-    l = map(int, str(n))
+    n = u.to_number('data/number.in')
+    l = list(map(int, str(n)))
     return max([l[i] * l[i + 1] * l[i + 2] * l[i + 3] * l[i + 4] \
            for i in range(996)])
 
-print p8()
+print(p8())

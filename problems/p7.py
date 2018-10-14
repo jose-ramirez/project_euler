@@ -3,10 +3,10 @@
 #
 #What is the 10 001st prime number?
 
-from utils import utils
+from context import utils
 u = utils.Utils()
 
 def p7():
     return u.sieve(1000000)[10000]
 
-print p7()
+print(p7())

@@ -2,7 +2,7 @@
 #
 #What is the largest prime factor of the number 600851475143 ?
 
-from utils import utils
+from context import utils
 u = utils.Utils()
 
 def p3(n):
@@ -13,5 +13,4 @@ def p3(n):
             max = q
     return max
 
-print p3(600851475143)
-
+print(p3(600851475143))

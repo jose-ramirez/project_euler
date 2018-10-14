@@ -1,8 +1,9 @@
-from fractions import gcd
-from operator import itemgetter
 import time
 import math
+from fractions import gcd
+from operator import itemgetter
 from math import sin, cos, atan, sqrt
+import functools as ft
 
 class Utils:
     """
@@ -29,13 +30,13 @@ class Utils:
         Returns the sum of all numbers up to n.
     """
     def sum_up_to(self, n):
-        return n * (n + 1) / 2
+        return n * (n + 1) // 2
     #print(sum_up_to(100))
 
-    """
-        Returns a list with all fibonacci numbers up to m.
-    """
     def fib(self, m):
+        """
+            Returns a list with all fibonacci numbers up to m.
+        """
         l = []
         l.append(0)
         l.append(1)
@@ -45,7 +46,6 @@ class Utils:
             if f < m:
                 l.append(f)
         return l
-    #print(fib(20))
 
     """
         Returns all primes less than n (if possible
@@ -66,19 +66,13 @@ class Utils:
         return sieve
     #print(sieve(100))
 
-    """
-        Returns whether a word (assumed
-        without whitespaces) is palindrome.
-    """
     def is_palindrome(self, s):
+        """
+            Returns whether a word (assumed
+            without whitespaces) is palindrome.
+        """
         return s == s[::-1]
     #print(palindrome(str(998801)))
-
-    """
-        Returns the lcm of two numbers.
-    """
-    def lcm(self, a, b):
-        return a * b / gcd(a, b)
 
     """
         Returns a matrix from the contents
@@ -90,12 +84,8 @@ class Utils:
     """
     def to_matrix(self, filename, separator = ' '):
         f = open(filename, 'r')
-        #para llamar a las funciones de una clase dentro de
-        #ellas, usar self!:
-        return [map(self.f1,
-            row.strip('\n').split(separator)) 
+        return [list(map(self.f1, row.strip('\n').split(separator)) )
             for row in f.readlines()]
-    #print(to_matrix('../data/mat.in'))
 
     """
         Prints a matrix to the screen.
@@ -129,7 +119,7 @@ class Utils:
         while i ** 2 <= n:
             if n % i == 0:
                 res += 2
-                if n / i == i:
+                if n // i == i:
                     res -= 1
             i += 1
         return res
@@ -263,7 +253,7 @@ class Utils:
         if n == 0:
             return 1
         else:
-            return reduce(lambda x, y: x * y, xrange(1, n + 1))
+            return ft.reduce(lambda x, y: x * y, range(1, n + 1))
 
     """
         Given n = abcd...e returns sum{a!}, where the sum

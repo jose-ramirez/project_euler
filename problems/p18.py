@@ -27,7 +27,9 @@
 #63 66 04 68 89 53 67 30 73 16 69 87 40 31
 #04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
-from utils import utils
+from context import utils
+import functools as ft
+
 u = utils.Utils()
 
 def p18(filename):
@@ -42,11 +44,12 @@ def p18(filename):
         l.append(sums[i - 1][-1] + t[i][-1])
         sums.append(l)
     return max(sums[-1])
+
 def p18_2(filename):
     t = u.to_matrix(filename)
     t.reverse()
-    return reduce(lambda l1, l2: [l2[i] + max(l1[i], l1[i + 1]) \
+    return ft.reduce(lambda l1, l2: [l2[i] + max(l1[i], l1[i + 1]) \
                                       for i in range(len(l2))], t)
 
-print p18('../data/p18_triangle.in')
-print p18('../data/p67_triangle.in')
+print(p18('data/p18_triangle.in'))
+print(p18('data/p67_triangle.in'))

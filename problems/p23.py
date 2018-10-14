@@ -20,7 +20,7 @@
 
 def get_abundants(n):
     abundants = []
-    with open('../data/abundants.txt', 'r') as abundants_txt:
+    with open('data/abundants.txt', 'r') as abundants_txt:
         return list(map(int, abundants_txt.readlines()[0].split(', ')))
 
 abundants = get_abundants(28123)
@@ -41,6 +41,6 @@ def p23():
         for j in range(i + 1):
             bools[abundants[i] + abundants[j]] = True
     l1 = [m for m in range(len(bools)) if (not bools[m] and m < 21000)]
-    print(sum(l1))
+    return sum(l1)
 
-p23()
+print(p23())
