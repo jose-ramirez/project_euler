@@ -10,10 +10,9 @@
 #Find the next triangle number that is also pentagonal and
 #hexagonal.
 
-from utils import Utils
+from context import f
 
 def p45():
-    u = Utils()
     a, b = 1, 1
     i = 0
     h_, k_, r_ = 0, 0, 0
@@ -21,14 +20,13 @@ def p45():
         a, b = 2 * a + 3 * b, a + 2 * b
         if a % 6 == 5 and b % 2 == 1:
             #triangular:
-            h_ = (b - 1) / 2
+            h_ = (b - 1) // 2
             #pentagonal:
-            k_ = (a + 1) / 6
+            k_ = (a + 1) // 6
             if h_ % 2 == 1:
                 #hexagonal:
-                r_ = (h_ + 1) / 2
+                r_ = (h_ + 1) // 2
                 i += 1
-    print u.t(h_)
+    return f.t(h_)
 
-u = Utils()
-u.exec_time(p45)
+print(p45())

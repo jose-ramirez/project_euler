@@ -5,13 +5,13 @@ def p(n):
     """
         The nth pentagonal number.
     """
-    return n * (3 * n - 1) / 2
+    return n * (3 * n - 1) // 2
 
 def t(n):    
     """
         The nth triangular number.
     """
-    return n * (n + 1) / 2
+    return n * (n + 1) // 2
 
 def h(n):
     """
@@ -104,3 +104,58 @@ def lcm(a, b):
         Returns the lcm of two numbers.
     """
     return a * b // gcd(a, b)
+
+def order(a, n):
+    """
+        Retorna order(a, n), el menor entero k que cumple
+        que a^k = 1 (mod n). Tiende a ser ineficiente a
+        medida que los valores crecen, pero cumple con su
+        objetivo si le das la oportunidad :)
+    """
+    from fractions import gcd
+    order = 0
+    if(gcd(a, n) > 1):
+        return order
+    else:
+        order = 1
+        mod_exp = a
+        while mod_exp != 1:
+            order += 1
+            mod_exp = (a * mod_exp) % n
+    return order
+
+def power_sum(n, exp, b = 10):
+    """
+        Returns the power sum of n, i.e., if n = abcd...
+        in base b (here b defaults to 10), then
+        power_sum(n, exp, b) returns sum{a^exp}, taking the
+        sum over all of n's digits.
+    """
+    total = 0
+    while n >= b:
+        d = n % b
+        total += d ** exp
+        n = n // b
+    return total + n ** exp
+
+def factorial(n):
+    """
+        The very well known factorial function. Given n,
+        returns n! for n >= 0.
+    """
+    if n == 0:
+        return 1
+    else:
+        return ft.reduce(lambda x, y: x * y, range(1, n + 1))
+
+def factorial_sum(n, factorial_list):
+    """
+        Given n = abcd...e returns sum{a!}, where the sum
+        is taken over all of n's digits.
+    """
+    total = 0
+    while n >= 10:
+        d = n % 10
+        total += factorial_list[d]
+        n =  n // 10
+    return total + factorial_list[n]

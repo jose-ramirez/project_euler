@@ -159,31 +159,12 @@ class Utils:
         end = time.time()
         print("exec time: " + str(end - init) + " seconds")
 
-    """
-        Retorna order(a, n), el menor entero k que cumple
-        que a^k = 1 (mod n). Tiende a ser ineficiente a
-        medida que los valores crecen, pero cumple con su
-        objetivo si le das la oportunidad :)
-    """
-    def order(self, a, n):
-        from fractions import gcd
-        order = 0
-        if(gcd(a, n) > 1):
-            return order
-        else:
-            order = 1
-            mod_exp = a
-            while mod_exp != 1:
-                order += 1
-                mod_exp = (a * mod_exp) % n
-        return order
-
-    """
-        Self made iterative binary search :)
-        It is assumed that data is an ordered list. returns the
-        index of val in data if val if found, else returns -1.
-    """
     def chop(self, val, data):
+        """
+            Self made iterative binary search :)
+            It is assumed that data is an ordered list. returns the
+            index of val in data if val if found, else returns -1.
+        """
 
         #the indices we'll be using to narrow our search:
         a, b = 0, len(data) - 1
@@ -195,7 +176,7 @@ class Utils:
             m = b - a + 1
 
             #our suspect might be here in this position:
-            pos = a + (m / 2)
+            pos = a + (m // 2)
 
             #found it! return the original index:
             if data[pos] == val:
@@ -215,57 +196,10 @@ class Utils:
         return -1
 
     """
-        The nth pentagonal number.
-    """
-    def p(self, n):
-        return n * (3 * n - 1) / 2
-
-    """
-        The nth triangular number.
-    """
-    def t(self, n):
-        return n * (n + 1) / 2
-
-    """
         The nth hexagonal number.
     """
     def h(self, n):
         return n * (2 * n - 1)
-    """
-        Returns the power sum of n, i.e., if n = abcd...
-        in base b (here b defaults to 10), then
-        power_sum(n, exp, b) returns sum{a^exp}, taking the
-        sum over all of n's digits.
-    """
-    def power_sum(self, n, exp, b = 10):
-        total = 0
-        while n >= b:
-            d = n % b
-            total += d ** exp
-            n /= b
-        return total + n ** exp
-
-    """
-        The very well known factorial function. Given n,
-        returns n! for n >= 0.
-    """
-    def factorial(self, n):
-        if n == 0:
-            return 1
-        else:
-            return ft.reduce(lambda x, y: x * y, range(1, n + 1))
-
-    """
-        Given n = abcd...e returns sum{a!}, where the sum
-        is taken over all of n's digits.
-    """
-    def factorial_sum(self, n, factorial_list):
-        total = 0
-        while n >= 10:
-            d = n % 10
-            total += factorial_list[d]
-            n /= 10
-        return total + factorial_list[n]
 
     """
         Partition function, according to a recurrence due
