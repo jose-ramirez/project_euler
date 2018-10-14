@@ -1,26 +1,26 @@
-#The prime 41, can be written as the sum of six consecutive
-#primes: 41 = 2 + 3 + 5 + 7 + 11 + 13.
+# The prime 41, can be written as the sum of six consecutive
+# primes: 41 = 2 + 3 + 5 + 7 + 11 + 13.
 #
-#This is the  longest sum of consecutive primes that adds
-#to a prime below one-hundred.
+# This is the  longest sum of consecutive primes that adds
+# to a prime below one-hundred.
 #
-#The longest sum of consecutive primes below one-thousand
-#that adds to a prime, contains 21 terms, and is equal to
-#953.
+# The longest sum of consecutive primes below one-thousand
+# that adds to a prime, contains 21 terms, and is equal to
+# 953.
 #
-#Which prime, below one-million, can be written as the sum
-#of the most consecutive primes?
+# Which prime, below one-million, can be written as the sum
+# of the most consecutive primes?
 
-from utils import Utils
-u = Utils()
+from context import utils
+u = utils.Utils()
 
 from bisect import bisect_left
 
-"""
-    Returns a list of all k-consecutive-prime sums given a
-    prime list, which are less or equal than limit.
-"""
 def k_consecutive_prime_sums(primes, k, limit):
+    """
+        Returns a list of all k-consecutive-prime sums given a
+        prime list, which are less or equal than limit.
+    """
     l = []
     for i in range(len(primes) - k + 1):
         m = sum(primes[i : i + k])
@@ -28,10 +28,10 @@ def k_consecutive_prime_sums(primes, k, limit):
             l.append(m)
     return l
 
-"""
-    Efficient 'item in lst' for sorted lists.
-"""
 def bi_contains(lst, item):
+    """
+        Efficient 'item in lst' for sorted lists.
+    """
     # if item is larger than the last its not in the list,
     # but the bisect would find `len(lst)` as the index to
     # insert, so check that first.
@@ -61,6 +61,6 @@ def p50():
             if bi_contains(p1, prime) and k > max_k:
                 max_k = k
                 p_k = prime
-    print max_k, p_k
+    return max_k, p_k
 
-u.exec_time(p50)
+print(p50()[1])

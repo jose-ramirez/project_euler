@@ -6,3 +6,4 @@ import euler.numbers.functions as f
 import euler.algebra as algebra
 import euler.geom as geom
 import euler.utils as utils
+import euler.poker as poker

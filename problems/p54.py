@@ -50,10 +50,10 @@
 
 # How many hands does Player 1 win?
 
-import utils.poker as poker
+from context import poker
 
 def p54():
-    with open('../data/p054_poker.txt') as file:
+    with open('data/p054_poker.txt') as file:
         l = []
         for line in file.readlines()[:1000]:
             cards = line.strip().split(' ')
@@ -62,6 +62,6 @@ def p54():
             if m1 == m2:
                 l.append(poker.break_tie(hand1, hand2, m1))
             l.append(m1 > m2)
-    print(sum(l))
+    return sum(l)
 
-p54()
+print(p54())
