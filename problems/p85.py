@@ -1,13 +1,13 @@
-#By counting carefully it can be seen that a rectangular grid
-#measuring 3 by 2 contains eighteen rectangles:
+# By counting carefully it can be seen that a rectangular grid
+# measuring 3 by 2 contains eighteen rectangles.
 #
-#Although there exists no rectangular grid that contains
-#exactly two million rectangles, find the area of the grid
-#with the nearest solution.
+# Although there exists no rectangular grid that contains
+# exactly two million rectangles, find the area of the grid
+# with the nearest solution.
 
-from utils import Utils
+from context import utils
 
-u = Utils()
+u = utils.Utils()
 
 def p85():
     MAX_W = 100
@@ -22,6 +22,6 @@ def p85():
             if d < min_d:
                 min_w, min_h, min_d = w, h, d
 
-    print min_w, min_h, min_d, min_w * min_h
+    return min_w, min_h, min_d, min_w * min_h
 
-u.exec_time(p85)
+print(p85()[3])

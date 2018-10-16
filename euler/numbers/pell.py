@@ -16,17 +16,17 @@ def PQa(P0, Q0, D):
     Q.append((D - (P[-1] * P[-1])) // Q[-1])
 
     while 2 * a0 not in a:
-        a, A, B, G, P, Q = step(a, A, B, G, P, Q)
+        a, A, B, G, P, Q = step(a, A, B, G, P, Q, D)
 
     l = len(a[1:])
 
     if l % 2 == 1:
         for i in range(l):
-            a, A, B, G, P, Q = step(a, A, B, G, P, Q)
+            a, A, B, G, P, Q = step(a, A, B, G, P, Q, D)
 
     return a, B[2:], G[2:]
 
-def step(a, A, B, G, P, Q):
+def step(a, A, B, G, P, Q, D):
     a.append(int((P[-1] + sqrt(D)) / Q[-1]))
     A.append((a[-1] * A[-1]) + A[-2])
     B.append((a[-1] * B[-1]) + B[-2])
@@ -35,8 +35,7 @@ def step(a, A, B, G, P, Q):
     Q.append((D - (P[-1] * P[-1])) // Q[-1])
     return a, A, B, G, P, Q
 
-def pell_min_sol(D):
-
+def min_sol(D):
     if is_square(D):
         return -1, -1
 
@@ -54,8 +53,3 @@ def verify_pell(a, b, D):
 
 def is_square(n):
     return int(sqrt(n)) ** 2 == n
-
-for D in range(2, 10001):
-    if not is_square(D):
-        a, b = pell_min_sol(D)
-        assert(verify_pell(a, b, D) == 1)

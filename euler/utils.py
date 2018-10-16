@@ -4,6 +4,7 @@ from fractions import gcd
 from operator import itemgetter
 from math import sin, cos, atan, sqrt
 import functools as ft
+import euler.numbers.functions as f
 
 class Utils:
     """
@@ -141,7 +142,7 @@ class Utils:
     def exp_mod(self, x, y, n):
         if y == 0:
             return 1
-        z = self.exp_mod(x, y / 2, n)
+        z = self.exp_mod(x, y // 2, n)
         if y % 2 == 0:
             return (z ** 2) % n
         else:
@@ -215,14 +216,14 @@ class Utils:
             k, k_ = 1, -1
             total = 0
             ind = 0
-            a, a_, p_ = i - self.p(k), i - self.p(k_), (-1) ** ind
+            a, a_, p_ = i - f.p(k), i - f.p(k_), (-1) ** ind
             indices_valid = a >= 0 or a_ >= 0
             #calculate next value for partition function:
             while indices_valid:
                 total += p_ * (l[a] * (a >= 0) + l[a_] * (a_ >= 0))
                 #update indices:
                 k, k_, ind = k + 1, k_ - 1, ind + 1
-                a, a_, p_ = i - self.p(k), i - self.p(k_), (-1) ** ind
+                a, a_, p_ = i - f.p(k), i - f.p(k_), (-1) ** ind
                 indices_valid = a >= 0 or a_ >= 0
             #add value to list:
             l.append(total)

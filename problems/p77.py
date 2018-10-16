@@ -1,16 +1,16 @@
-#It is possible to write ten as the sum of primes in exactly five different ways:
+# It is possible to write ten as the sum of primes in exactly five different ways:
 #
-#7 + 3
-#5 + 5
-#5 + 3 + 2
-#3 + 3 + 2 + 2
-#2 + 2 + 2 + 2 + 2
+# 7 + 3
+# 5 + 5
+# 5 + 3 + 2
+# 3 + 3 + 2 + 2
+# 2 + 2 + 2 + 2 + 2
 #
-#What is the first value which can be written as the sum of primes in over five
-#thousand different ways?
+# What is the first value which can be written as the sum of primes in over five
+# thousand different ways?
 
-from utils import Utils
-u = Utils()
+from context import utils
+u = utils.Utils()
 
 """
     Returns the number of partitions of n with prime elements,
@@ -25,7 +25,7 @@ def partitions(m, s):
         return sum([partitions(m - p, s) for p in s if p < m])
 
 def f(x, p, l):
-    print x, p, x - p
+    print(x, p, x - p)
     return l[x - p]
 
 """
@@ -41,8 +41,8 @@ def parts(m):
         for x in range(7, m + 1):
             a = [f(x, p, l) for p in s if p <= x]
             l.append(sum(a))
-            print a
-    print l
+            print(a)
+    print(l)
     return l[m]
 
 
@@ -57,8 +57,8 @@ def sopf(n, primes):
     for p in primes:
         if n % p == 0:
             total += p
-            while n / p == 0:
-                n /= p
+            while n // p == 0:
+                n //= p
     return total
 
 #print sopf(900)
@@ -72,9 +72,14 @@ def k(n):
     l =[1, 0]
     for i in range(2, n + 1):
         l1 =[l[r] * sopf(i - r, primes) for r in range(1, i)]
-        s = (sum(l1) + sopf(i, primes)) / i
+        s = (sum(l1) + sopf(i, primes)) // i
         l.append(s)
     return l[n]
 
-print k(71)
+def p77():
+    n = 2
+    while k(n) <= 5000:
+        n += 1
+    return n
 
+print(p77())
