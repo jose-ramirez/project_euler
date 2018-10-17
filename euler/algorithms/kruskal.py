@@ -1,6 +1,7 @@
-from ds import DisjointSet
+from euler.algorithms.ds import DisjointSet
+from operator import itemgetter
 
-def kruskal(nodes, edges):
+def min_span_tree(nodes, edges):
     forest = DisjointSet()
     mst = []
     for n in nodes:

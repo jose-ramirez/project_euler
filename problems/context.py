@@ -8,3 +8,4 @@ import euler.algebra as algebra
 import euler.geom as geom
 import euler.utils as utils
 import euler.poker as poker
+from euler.algorithms import kruskal
