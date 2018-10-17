@@ -1,35 +1,37 @@
-#The radical of n, rad(n), is the product of distinct prime factors of n. For
-#example, 504 = 2^3 x 3^2 x 7, so rad(504) = 2 x 3 x 7 = 42.
+# The radical of n, rad(n), is the product of distinct prime factors of n. For
+# example, 504 = 2^3 x 3^2 x 7, so rad(504) = 2 x 3 x 7 = 42.
 #
-#We shall define the triplet of positive integers (a, b, c) to be an abc-hit if:
+# We shall define the triplet of positive integers (a, b, c) to be an abc-hit if:
 
-#GCD(a, b) = GCD(a, c) = GCD(b, c) = 1
-#a < b
-#a + b = c
-#rad(abc) < c
-#For example, (5, 27, 32) is an abc-hit, because:
+# GCD(a, b) = GCD(a, c) = GCD(b, c) = 1
+# a < b
+# a + b = c
+# rad(abc) < c
+# For example, (5, 27, 32) is an abc-hit, because:
 
-#GCD(5, 27) = GCD(5, 32) = GCD(27, 32) = 1
-#5 < 27
-#5 + 27 = 32
-#rad(4320) = 30 < 32
-#It turns out that abc-hits are quite rare and there are only thirty-one abc
-#hits for c < 1000, with sum(c) = 12523.
+# GCD(5, 27) = GCD(5, 32) = GCD(27, 32) = 1
+# 5 < 27
+# 5 + 27 = 32
+# rad(4320) = 30 < 32
+# It turns out that abc-hits are quite rare and there are only thirty-one abc
+# hits for c < 1000, with sum(c) = 12523.
 #
-#Find sum(c) for c < 120000.
+# Find sum(c) for c < 120000.
 
 from fractions import gcd
-from utils import Utils
+from context import utils
+u = utils.Utils()
 
-#en el for ya estoy garantizando las condiciones 2 y 3:
 def hit(a, b, c, rad):
     cond_1 = gcd(b, c) == 1
     cond_2 = rad[a] * rad[b] * rad[c] < c
     return cond_1 and cond_2
 
-#creates an array of rad(n) for all values < n using dp
-#and a precalculated set of primes.
 def rad(n, primes):
+    """
+        creates an array of rad(n) for all values < n using dp
+        and a precalculated set of primes.
+    """
     l = [0, 1]
     i = 2
     while i < n:
@@ -49,7 +51,6 @@ def rad(n, primes):
     return l
 
 def p127(max_c, exp):
-    u = Utils()
     primes = u.sieve(max_c)
     radicals = rad(int(max_c), primes)
     possible_ys = [i for i in range(1, max_c) if radicals[i] <= int(max_c ** exp)]
@@ -65,7 +66,6 @@ def p127(max_c, exp):
             if a < b and c < max_c and hit(a, b, c, radicals):
                 print(a,b,c)
                 total += c
-    print(total)
+    return total
 
-u = Utils()
-u.exec_time(lambda: p127(120000, 0.8))
+print(p127(120000, 0.8))
