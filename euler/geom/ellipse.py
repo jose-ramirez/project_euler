@@ -10,19 +10,21 @@ class Ellipse:
         self.a = a
         self.b = b
 
-    def intersects(self, line):
+    def intersect(self, line):
         """
             Should return the points of intersection
-            of the line and this ellipse, if any.
-            Should never return None
+            of the line and this ellipse, if any,
+            or an empty list if none is found.
         """
-        return [Point(0.0, 0.0), Point(0.0, 0.0)]
+        return [Point([0.0, 0.0]), Point([0.0, 0.0])]
 
     def tangent(self, point):
         """
             Returns the taangent line to this ellipse
             at the given point. For now, I'll assume
             the point always lies on the ellipse, so it
-            should always return a valid line.
+            should always return an actual tangent line.
         """
-        return Line(1.0, 0.0)
+        x, y = point.x, point.y
+        m = (- b ** 2 / a ** 2) * (x / y)
+        return Line(m, y - m * x)
