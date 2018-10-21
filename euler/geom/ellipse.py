@@ -1,5 +1,6 @@
-from point import Point
-from line import Line
+from euler.geom.point import Point
+from euler.geom.line import Line
+import math
 
 class Ellipse:
     def __init__(self, a, b):
@@ -16,15 +17,33 @@ class Ellipse:
             of the line and this ellipse, if any,
             or an empty list if none is found.
         """
-        return [Point([0.0, 0.0]), Point([0.0, 0.0])]
+        m, c = line.m, line.b
+        a, b = self.a, self.b
+        den = (a * m) ** 2 + b ** 2
+        d = a * b * math.sqrt(den - c ** 2)
+        x1 = (-a ** 2 * m * c + d) / den
+        x2 = (-a ** 2 * m * c - d) / den
+        points = [Point([x1, m * x1 + c]), Point([x2, m * x2 + c])]
+        return filter(lambda p: self.in_ellipse, points)
+
+    def in_ellipse(self, point):
+        """
+            Is the given point on the ellipse?
+        """
+        x, y = point.x, point.y
+        a, b = self.a, self.b
+        tol = 1e-5
+        f = (x / a) ** 2 + (y / b) ** 2
+        return math.fabs(1.0 - f) < tol
 
     def tangent(self, point):
         """
-            Returns the taangent line to this ellipse
+            Returns the tangent line to this ellipse
             at the given point. For now, I'll assume
             the point always lies on the ellipse, so it
             should always return an actual tangent line.
         """
         x, y = point.x, point.y
-        m = (- b ** 2 / a ** 2) * (x / y)
+        a, b = self.a, self.b
+        m = (- (b / a) ** 2) * (x / y)
         return Line(m, y - m * x)

@@ -1,4 +1,5 @@
-from point import Point
+from euler.geom.point import Point
+from math import atan2
 
 class Line:
     def __init__(self, m, b):
@@ -14,7 +15,8 @@ class Line:
             with respect to the given axis.
         """
         p = self.intersect(axis)
-        return Line(1.0, 0.0)
+        alpha = self.angle(axis)
+        return axis.rotate(p, alpha)
 
     def perpendicular(self, point):
         """
@@ -23,25 +25,24 @@ class Line:
         """
         m_p = -1.0 / self.m
         x, y = point.x, point.y
-        b_p = y - m_p * x
-        return Line(m_p, b_p)
+        return Line(m_p, y - m_p * x)
 
     def angle(self, other_line):
         """
             Returns the angle between this line
             and another one.
-            Should it be 0 if they are parallel/the same?
         """
-        pass
+        m2, m1 = self.m, other_line.m
+        return atan2(m1 - m2, 1 + m1 * m2)
 
-    def intersect(self, line):
+    def intersect(self, other_line):
         """
             Returns the intersection point of this
-            line and the ons passed as parameter,
-            or None if the lines are parallel enough.
+            line and the one passed as parameter,
+            or None if the lines are 'parallel enough'.
         """
-        m1, m2 = this.m, other_line.m
-        b1, b2 = this.b, other_line.b
+        m1, m2 = self.m, other_line.m
+        b1, b2 = self.b, other_line.b
         if m1 == m2: # lines are parallel, or equal
             return None
         else:
@@ -54,4 +55,12 @@ class Line:
             Returns the result of rotating this line
             theta radians with respect to p.
         """
-        pass
+        m, b = self.m, self.b
+        some_x1, some_x2 = 1.0, 2.0
+        some_y1, some_y2 = m * some_x1 + b, m * some_x2 + b
+        p1, p2 = Point([some_x1, some_y1]), Point([some_x2, some_y2])
+        new_p1, new_p2 = p1.rotate(p, theta), p2.rotate(p, theta)
+        x1, y1, x2, y2 = new_p1.x, new_p1.y, new_p2.x, new_p2.y
+        new_m = (y2 - y1) / (x2 - x1)
+        new_b = y1 - (new_m * x1)
+        return Line(new_m, new_b)
