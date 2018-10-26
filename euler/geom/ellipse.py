@@ -24,17 +24,16 @@ class Ellipse:
         x1 = (-a ** 2 * m * c + d) / den
         x2 = (-a ** 2 * m * c - d) / den
         points = [Point([x1, m * x1 + c]), Point([x2, m * x2 + c])]
-        return filter(lambda p: self.in_ellipse, points)
+        return filter(lambda p: self.has_point, points)
 
-    def in_ellipse(self, point):
+    def has_point(self, point):
         """
             Is the given point on the ellipse?
         """
         x, y = point.x, point.y
         a, b = self.a, self.b
-        tol = 1e-5
         f = (x / a) ** 2 + (y / b) ** 2
-        return math.fabs(1.0 - f) < tol
+        return math.fabs(1.0 - f) < 1e-5
 
     def tangent(self, point):
         """

@@ -6,9 +6,9 @@
 #(Please note that the palindromic number, in either base, may not include
 #leading zeros.)
 
-from context import utils
+from context import Utils
 
-u = utils.Utils()
+u = Utils()
 
 def p36():
   total = 0

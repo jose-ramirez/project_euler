@@ -203,48 +203,6 @@ class Utils:
             l.append(total)
         return l
 
-    def cross_2d(self, v1, v2):
-        """
-            Cross product for 2d vectors, seen as 3d vectors with
-            z component equal to 0.
-        """
-        return [0, 0, v1[0] * v2[1] - v1[1] * v2[0]]
-
-    def dot(self, v1, v2):
-        """
-            Dot product for arbitrary n-dimensional vectors.
-        """
-        return sum(v1[i] * v2[i] for i in range(len(v1)))
-
-    def vec(self, p2, p1):
-        """
-            Returns the vector joining points p1 towards p2.
-        """
-        return [p1[i] - p2[i] for i in range(len(p1))]
-
-    def same_side(self, p1, p2, a, b):
-        """
-            Returns True if points p1, p2 are on the same side of
-            the line joining a and b.
-        """
-        cp1 = self.cross_2d(self.vec(b, a), self.vec(p1, a))
-        cp2 = self.cross_2d(self.vec(b, a), self.vec(p2, a))
-        return self.dot(cp1, cp2) >= 0
-
-    def in_triangle(self, p, t):
-        """
-            Returns True if the point P is inside the triangle
-            defined by t.
-            Taken from the following page:
-            http://www.blackpawn.com/texts/pointinpoly/
-        """
-        a = t[0]
-        b = t[1]
-        c = t[2]
-        return self.same_side(p, a, b, c) and\
-            self.same_side(p, b, a, c) and\
-            self.same_side(p, c, a, b)
-
     def pi(self, n, prime_list):
         """
             Prime counting function. It depends on already having a

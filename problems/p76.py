@@ -11,9 +11,9 @@
 # How many different ways can one hundred be written as a sum
 # of at least two positive integers?
 
-from context import utils
+from context import Utils
 
-u = utils.Utils()
+u = Utils()
 
 def p76():
     # we subtract 1 since we're only considering partitions

@@ -8,8 +8,8 @@
 #
 # Find the last ten digits of this prime number.
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def p97():
     return (u.exp_mod(2, 7830457, 10 ** 10) * 28433 + 1) % (10 ** 10)

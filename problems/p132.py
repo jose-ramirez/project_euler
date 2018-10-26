@@ -6,8 +6,8 @@
 #
 # Find the sum of the first forty prime factors of R(10^9).
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def p132():
     primes = u.sieve(165000)

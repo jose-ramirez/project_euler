@@ -1,5 +1,5 @@
 from euler.geom.point import Point
-from math import atan2
+import math
 
 class Line:
     def __init__(self, m, b):
@@ -33,7 +33,7 @@ class Line:
             and another one.
         """
         m2, m1 = self.m, other_line.m
-        return atan2(m1 - m2, 1 + m1 * m2)
+        return math.atan2(m1 - m2, 1 + m1 * m2)
 
     def intersect(self, other_line):
         """

@@ -11,8 +11,8 @@
 # Which prime, below one-million, can be written as the sum
 # of the most consecutive primes?
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 from bisect import bisect_left
 

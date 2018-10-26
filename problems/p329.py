@@ -19,9 +19,9 @@
 # Give your answer as a fraction p/q in reduced form.
 
 from fractions import Fraction
-from context import utils
+from context import Utils
 
-u = utils.Utils()
+u = Utils()
 
 d = {}
 

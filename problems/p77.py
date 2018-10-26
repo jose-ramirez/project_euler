@@ -9,8 +9,8 @@
 # What is the first value which can be written as the sum of primes in over five
 # thousand different ways?
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 """
     Returns the number of partitions of n with prime elements,

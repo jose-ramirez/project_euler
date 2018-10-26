@@ -31,9 +31,9 @@
 # NOTE: Wording was modified slightly on 24 April 2007 to
 # emphasise the theoretical nature of Lychrel numbers.
 
-from context import utils
+from context import Utils
 
-u = utils.Utils()
+u = Utils()
 
 def is_lychrel(n):
     iterations = 0

@@ -20,9 +20,9 @@
 # find the maximum saving which can be achieved by removing redundant edges
 # whilst ensuring that the network remains connected.
 
-from context import utils
+from context import Utils
 from context import kruskal
-u = utils.Utils()
+u = Utils()
 
 def f1(r):
     a = r.split(',')

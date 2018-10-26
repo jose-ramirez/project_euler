@@ -10,8 +10,8 @@
 #NOTE: 2, 3, 5, and 7 are not considered to be truncatable
 #primes.
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def is_right_truncatable(p, u, sieve):
     while p > 10:

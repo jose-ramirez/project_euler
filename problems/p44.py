@@ -11,10 +11,10 @@
 # |Pk − Pj| is minimised; what is the value of D?
 
 from context import f
-from context import utils
+from context import Utils
 
 def p44():
-    u = utils.Utils()
+    u = Utils()
     limit = 3000
     pl = [f.p(i) for i in range(limit)]
     for a in range(1, limit):

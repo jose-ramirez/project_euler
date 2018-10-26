@@ -6,7 +6,6 @@
 # Considering natural numbers of the form, a^b, where
 # a, b < 100, what is the maximum digital sum?
 
-from context import utils
 import functools as ft
 
 def digit_sum(a, b):

@@ -7,7 +7,7 @@
 #
 #How many circular primes are there below one million?
 
-from context import utils
+from context import Utils
 
 def cyclic_shifts_of(str_num):
     m = len(str_num)
@@ -23,14 +23,14 @@ def cyclic_shifts_of(str_num):
     return list(map(int, l))
 
 def all_in(l1, l2, u):
-    u = utils.Utils()
+    u = Utils()
     for n in l1:
         if u.chop(n, l2) == -1:
             return False
     return True
 
 def p35():
-    u = utils.Utils()
+    u = Utils()
     sieve = u.sieve(10 ** 6)
     count = 0
     for prime in sieve:
@@ -43,5 +43,5 @@ def p35():
 def exec_():
     print(p35())
 
-u = utils.Utils()
+u = Utils()
 u.exec_time(exec_)

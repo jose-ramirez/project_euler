@@ -7,10 +7,10 @@
 # What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer 
 # rounded to seven decimal places in the form 0.abcdefg
 
-from context import poly
+from context import Poly
 def p205():
-  peter = poly.Poly([1,1,1,1,0]).pow(9)
-  colin = poly.Poly([1,1,1,1,1,1,0]).pow(6)
+  peter = Poly([1,1,1,1,0]).pow(9)
+  colin = Poly([1,1,1,1,1,1,0]).pow(6)
 
   total = 0
   for p in range(9, 37):

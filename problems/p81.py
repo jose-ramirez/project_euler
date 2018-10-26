@@ -13,8 +13,8 @@
 # by 80 matrix, from the top left to the bottom right by only moving right
 # and down.
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def p81():
     m = u.to_matrix('data/matrix.txt', ',')

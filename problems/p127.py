@@ -19,8 +19,8 @@
 # Find sum(c) for c < 120000.
 
 from fractions import gcd
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def hit(a, b, c, rad):
     cond_1 = gcd(b, c) == 1

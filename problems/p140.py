@@ -23,10 +23,7 @@
 #
 # Find the sum of the first thirty golden nuggets.
 
-from math import sqrt
-from context import utils
-
-u = utils.Utils()
+import math
 
 def sol_set(fund_sol, fund_can_sol, D, max = 15):
     """
@@ -73,7 +70,7 @@ def p140():
     sol_set([32, 14], [9, 4], 5) + \
     sol_set([43, 19], [9, 4], 5)
 
-    xs = map(lambda y: int(sqrt(5 * (y ** 2) + 44)), ys)
+    xs = map(lambda y: int(math.sqrt(5 * (y ** 2) + 44)), ys)
     xs_ = [(k - 7) // 5 for k in xs if k % 5 == 2]
     final = sorted(xs_)
 

@@ -27,10 +27,10 @@
 #63 66 04 68 89 53 67 30 73 16 69 87 40 31
 #04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
-from context import utils
+from context import Utils
 import functools as ft
 
-u = utils.Utils()
+u = Utils()
 
 def p18(filename):
     t = u.to_matrix(filename)

@@ -11,10 +11,10 @@
 # How many primes below one million have this remarkable
 # property?
 
-from context import utils
+from context import Utils
 
 cube_list = [x ** 3 for x in range(578)]
-u = utils.Utils()
+u = Utils()
 prime_list = u.sieve(10 ** 6)
 
 def p131():

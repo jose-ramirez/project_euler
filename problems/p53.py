@@ -15,8 +15,8 @@
 # How many, not necessarily distinct, values of nCr, for
 # 1 <= n <= 100, are greater than one-million?
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def p53():    
     mat, val = u.binom(100, 100)

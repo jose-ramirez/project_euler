@@ -27,8 +27,8 @@
 #What is the greatest product of four adjacent numbers in any
 #direction (up, down, left, right, or diagonally) in the 20 x 20 grid?
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def p11():
     mat = u.to_matrix('data/mat.in')

@@ -2,8 +2,8 @@
 #
 #What is the largest prime factor of the number 600851475143 ?
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def p3(n):
     p = u.sieve(7000)

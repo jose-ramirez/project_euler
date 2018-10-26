@@ -12,9 +12,9 @@
 # Find the least value of n for which the remainder first
 # exceeds 10^10.
 
-from context import utils
+from context import Utils
 
-u = utils.Utils()
+u = Utils()
 
 p = u.sieve(4 * (10 ** 5))
 

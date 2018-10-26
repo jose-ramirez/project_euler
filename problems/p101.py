@@ -45,8 +45,8 @@
 # + n^10.
 # Find the sum of FITs for the BOPs.
 
-from context import utils
-u_ = utils.Utils()
+from context import Utils
+u_ = Utils()
 m, val = u_.binom(11,11)
 
 def u(n):

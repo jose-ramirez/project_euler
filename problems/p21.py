@@ -10,8 +10,8 @@
 #
 # Evaluate the sum of all the amicable numbers under 10000.
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def f(p, k):
   return ((p ** (k + 1)) - 1) / (p - 1)

@@ -14,18 +14,15 @@
 # first nine digits AND the last nine digits are 1-9
 # pandigital, find k.
 
-from context import utils
-from math import sqrt
+import math
 from decimal import Decimal
-
-u = utils.Utils()
 
 def is_pandigital(n):
     return ''.join(sorted(str(n))) == '123456789'
 
 def p104():
-    phi = (1 + sqrt(5)) / 2.
-    c = sqrt(5)
+    phi = (1 + math.sqrt(5)) / 2.
+    c = math.sqrt(5)
     i = 2
     f = Decimal((phi ** 2) / c)
     m = str(f)[:10].replace('.', '')

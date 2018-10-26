@@ -13,11 +13,11 @@
 # What is the smallest odd composite that cannot be written as the sum of a
 # prime and twice a square?
 
-from context import utils
+from context import Utils
 
 def p46():
 	#getting precalculated primes and squares:
-	u = utils.Utils()
+	u = Utils()
 	primes = u.sieve(6000)
 	squares = [i * i for i in range(1, 101)]
 	#start searching at 15:

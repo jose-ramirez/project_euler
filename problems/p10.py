@@ -2,8 +2,8 @@
 #
 #Find the sum of all the primes below two million.
 
-from context import utils
-u = utils.Utils()
+from context import Utils
+u = Utils()
 
 def p10():
     return sum(u.sieve(2000000))

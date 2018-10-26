@@ -20,20 +20,25 @@
 # NOTE: The first two examples in the file represent the
 # triangles in the example given above.
 
-from context import utils
-
-u = utils.Utils()
+# from context import Utils
+from context import Triangle, Point
 
 def p102():
     total = 0
-    P = [0, 0]
-    triangles = []
+    origin = Point([0.0, 0.0])
 
     with open('data/p102_triangles.txt', 'r') as file:
         for line in file.readlines():
-            points = map(int, line.split(','))
-            a1, a2, b1, b2, c1, c2 = list(points)
-            total += u.in_triangle(P, [(a1, a2), (b1, b2), (c1, c2)])
+            coordinates = list(map(int, line.split(',')))
+
+            a, b, c = \
+                Point(coordinates[:2]), \
+                Point(coordinates[2:4]), \
+                Point(coordinates[4:])
+
+            t = Triangle(a, b, c)
+
+            total += t.contains(origin)
     return total
 
 print(p102())

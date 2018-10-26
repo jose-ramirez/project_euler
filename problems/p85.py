@@ -5,9 +5,9 @@
 # exactly two million rectangles, find the area of the grid
 # with the nearest solution.
 
-from context import utils
+from context import Utils
 
-u = utils.Utils()
+u = Utils()
 
 def p85():
     MAX_W = 100
