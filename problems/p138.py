@@ -1,21 +1,17 @@
 #coding: UTF-8
-#Consider the isosceles triangle with base length, b = 16,
-#and legs, L = 17.
+# Consider the isosceles triangle with base length, b = 16,
+# and legs, L = 17.
 #
-#By using the Pythagorean theorem it can be seen that the
-#height of the triangle, h = √(17^2 − 8^2) = 15, which is
-#one less than the base length.
+# By using the Pythagorean theorem it can be seen that the
+# height of the triangle, h = √(17^2 − 8^2) = 15, which is
+# one less than the base length.
 #
-#With b = 272 and L = 305, we get h = 273, which is one more
-#than the base length, and this is the second smallest
-#isosceles triangle with the property that h = b ± 1.
+# With b = 272 and L = 305, we get h = 273, which is one more
+# than the base length, and this is the second smallest
+# isosceles triangle with the property that h = b ± 1.
 #
-#Find ∑ L for the twelve smallest isosceles triangles for
-#which h = b ± 1 and b, L are positive integers.
-
-from utils import Utils
-
-u = Utils()
+# Find ∑ L for the twelve smallest isosceles triangles for
+# which h = b ± 1 and b, L are positive integers.
 
 def p138():
     """
@@ -32,12 +28,12 @@ def p138():
     """
     a, L = 76, 17
     num_triangles = 1
-    total = b
+    total = 17 # ???
     while num_triangles < 12:
         a, L = 9 * a + 40 * L, 2 * a + 9 * L
         if a % 5 == 1 or a % 5 == 4:
             total += L
             num_triangles += 1
-    print total
+    return total
 
-u.exec_time(p138)
+print(p138())

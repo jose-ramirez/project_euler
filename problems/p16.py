@@ -3,6 +3,7 @@
 #What is the sum of the digits of the number 2^1000?
 
 def p16():
-    print sum(map(int, str(2 ** 1000)))
+    m = map(int, str(2 ** 1000))
+    return sum(list(m))
 
-p16()
+print(p16())

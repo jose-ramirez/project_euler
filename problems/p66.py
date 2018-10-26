@@ -22,11 +22,11 @@
 # Find the value of D ≤ 1000 in minimal solutions of x for which the largest
 # value of x is obtained.
 
-from pell import pell_min_sol, is_square
+from context import pell
 
 def p66():
-    solutions = [(D, pell_min_sol(D)[0]) for D in range(2, 1001) if not is_square(D)]
+    solutions = [(D, pell.min_sol(D)[0]) for D in range(2, 1001) if not pell.is_square(D)]
     sorted_solutions = sorted(solutions, key=lambda p: p[1])
-    print(sorted_solutions[-1])
+    return sorted_solutions[-1]
 
-p66()
+print(p66())

@@ -18,14 +18,12 @@
 
 #... como hacerlo sin depender del poder de python?
 def p29():
-    from utils import Utils
-    u = Utils()
     power_list = []
-    for a in xrange(2, 101):
-        for b in xrange(2, 101):
+    for a in range(2, 101):
+        for b in range(2, 101):
             c = a ** b
             if c not in power_list:
                 power_list.append(c)
     return len(power_list)
 
-print p29()
+print(p29())

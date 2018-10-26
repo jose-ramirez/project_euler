@@ -27,3 +27,5 @@ def full_sum(m):
 
 def p28():
     print(full_sum(501))
+
+p28()

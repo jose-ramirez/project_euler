@@ -7,11 +7,9 @@
 #For which value of p <= 1000, is the number of solutions
 #maximised?
 
-from utils import Utils
-
 def count_solutions(p):
     total = 0
-    for a in xrange(1, p):
+    for a in range(1, p):
         for b in range(a, p):
             c = p - a - b
             if 0 < a <= b < c:
@@ -27,7 +25,6 @@ def p39():
         if m > max_count:
             max_count = m
             perimeter = p
-    print max_count, perimeter
+    return max_count, perimeter
 
-u = Utils()
-u.exec_time(p39)
+print(p39()[1])

@@ -4,10 +4,10 @@
 #and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 #
 #Find the sum of the digits in the number 100!
-def factorial(n):
-    return 1 if n == 0 or n == 1 else n * factorial(n - 1)
+from context import f
 
 def p20():
-    print(sum(map(int, str(factorial(100)))))
+    m = map(int, str(f.factorial(100)))
+    return sum(list(m))
 
-p20()
+print(p20())

@@ -1,19 +1,15 @@
-#If a box contains twenty-one coloured discs, composed of 
-#fifteen blue discs and six red discs, and two discs were 
-#taken at random, it can be seen that the probability of 
-#taking two blue discs, P(BB) = (15/21)x(14/20) = 1/2. 
+# If a box contains twenty-one coloured discs, composed of 
+# fifteen blue discs and six red discs, and two discs were 
+# taken at random, it can be seen that the probability of 
+# taking two blue discs, P(BB) = (15/21)x(14/20) = 1/2. 
 #
-#The next such arrangement, for which there is exactly 50% 
-#chance of taking two blue discs at random, is a box 
-#containing eighty-five blue discs and thirty-five red discs. 
+# The next such arrangement, for which there is exactly 50% 
+# chance of taking two blue discs at random, is a box 
+# containing eighty-five blue discs and thirty-five red discs. 
 #
-#By finding the first arrangement to contain over 10^12 = 
-#1,000,000,000,000 discs in total, determine the number of 
-#blue discs that the box would contain. 
-
-from utils import Utils
-
-u = Utils()
+# By finding the first arrangement to contain over 10^12 = 
+# 1,000,000,000,000 discs in total, determine the number of 
+# blue discs that the box would contain. 
 
 def p100():
     """
@@ -31,10 +27,10 @@ def p100():
         for k >= 0.
     """
     x, y = 1, 1
-    total = (x + 1) / 2
+    total = (x + 1) // 2
     while total < 10 ** 12:
         x, y = 3 * x + 4 * y, 2 * x + 3 * y
-        total = (x + 1) / 2
-    print (y + 1) / 2
+        total = (x + 1) // 2
+    return (y + 1) // 2
 
-u.exec_time(p100)
+print(p100())

@@ -12,14 +12,14 @@
 #Find the sum of all the numbers that can be written as the
 #sum of fifth powers of their digits.
 
+from context import f
+
 def p30():
-    from utils import Utils
-    u = Utils()
     total = 0
-    for i in xrange(350000):
-        ps = u.power_sum(i, 5)
+    for i in range(350000):
+        ps = f.power_sum(i, 5)
         if i == ps:
             total += ps
     return total - 1
 
-print p30()
+print(p30())

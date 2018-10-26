@@ -10,11 +10,12 @@
 #NOTE: 2, 3, 5, and 7 are not considered to be truncatable
 #primes.
 
-from utils import Utils
+from context import Utils
+u = Utils()
 
 def is_right_truncatable(p, u, sieve):
     while p > 10:
-        p /= 10
+        p //= 10
         if u.chop(p, sieve) == -1:
             return False
     return True
@@ -28,7 +29,6 @@ def is_left_truncatable(p, u, sieve):
     return True
 
 def p37():
-    u = Utils()
     primes = u.sieve(10 ** 6)
     total = 0
     for p in primes:
@@ -37,7 +37,6 @@ def p37():
         if a and b:
             total += p
     #we have to ignore 2, 3, 5, and 7, which sum up to 17:
-    print total - 17
+    print(total - 17)
 
-u = Utils()
 u.exec_time(p37)

@@ -13,10 +13,6 @@
 #month during the twentieth century (1 Jan 1901 to 31 Dec
 #2000)?
 
-from utils import Utils
-
-u = Utils()
-
 def is_leap(year):
 	a = (year % 4 == 0 and year % 100 != 0)
 	b = year % 400 == 0
@@ -45,6 +41,6 @@ def p19():
         # if it was sunday:
         t = len(g) if start != 0 else len(g) + 1
         total += t
-    print total
+    return total
 
-u.exec_time(p19)    
+print(p19())

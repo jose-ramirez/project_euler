@@ -1,4 +1,4 @@
-#encoding:UTF-8
+# encoding:UTF-8
 #Euler discovered the remarkable quadratic formula:
 #
 #n^2 + n + 41
@@ -22,6 +22,7 @@
 #n = 0.
 
 from math import fabs
+
 def a(r):
   return 1 - (2 * r)
 
@@ -39,4 +40,4 @@ def p27():
       s += 1
   return p
 
-print p27()
+print(p27())

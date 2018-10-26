@@ -19,17 +19,16 @@
 #Find the value of d < 1000 for which 1/d contains the
 #longest recurring cycle in its decimal fraction part.
 
-from utils import utils
+from context import f
 
 def p26():
-    u = utils.Utils()
     max = -1
     max_i = 0
-    for i in xrange(2, 1001):
-        o = u.order(10, i)
+    for i in range(2, 1001):
+        o = f.order(10, i)
         if o > max:
             max = o
             max_i = i
-    print max_i
+    return max_i
 
-p26()
+print(p26())

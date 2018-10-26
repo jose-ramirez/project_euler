@@ -5,18 +5,15 @@
 #words, how many letters would be used?
 
 def p17():
-    one_to_nine = sum(map(len, ["one", "two","three","four", "five", "six",
-        "seven", "eight", "nine"]))
-    ten_to_nineteen = sum(map(len, ["ten", "eleven", "twelve", "thirteen",
-        "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]))
-    twenty_to_ninety = sum(map(len, ["twenty", "thirty", "forty", "fifty",
-        "sixty", "seventy", "eighty", "ninety"]))
+    one_to_nine = list(map(len, ["one", "two","three","four", "five", "six", "seven", "eight", "nine"]))
+    ten_to_nineteen = list(map(len, ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]))
+    twenty_to_ninety = list(map(len, ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]))
 
-    one_to_ninety_nine = ten_to_nineteen + 9 * one_to_nine + 10 * twenty_to_ninety
+    one_to_ninety_nine = sum(ten_to_nineteen) + 9 * sum(one_to_nine) + 10 * sum(twenty_to_ninety)
 
-    print one_to_ninety_nine + (100 * one_to_nine) + \
+    return one_to_ninety_nine + (100 * sum(one_to_nine)) + \
         ((100 * len("hundredand") - 3) * 9) + \
         one_to_ninety_nine * 9 + \
         len("onethousand")
 
-p17()
+print(p17())

@@ -13,9 +13,10 @@
 #of the 5050 entries are not divisible by 7.
 #
 #Find the number of entries which are not divisible by 7 in the first one
-#billion (109) rows of Pascal's triangle.
+#billion (10^9) rows of Pascal's triangle.
 
 from operator import mul
+from functools import reduce
 from utils import Utils
 u = Utils()
 
@@ -53,4 +54,4 @@ def find_total(k, p):
     return u.sum_up_to(p) ** k
 
 #esta cuenta hasta 7^10:
-print find_total(10, 7)
+print(find_total(10, 7))

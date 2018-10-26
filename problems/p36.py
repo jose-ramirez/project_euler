@@ -6,7 +6,7 @@
 #(Please note that the palindromic number, in either base, may not include
 #leading zeros.)
 
-from utils import Utils
+from context import Utils
 
 u = Utils()
 
@@ -16,6 +16,6 @@ def p36():
     if u.is_palindrome(str(bin(i)[2:])) and u.is_palindrome(str(i)):
       total += i
 
-  print total
+  return total
 
-u.exec_time(p36)
+print(p36())

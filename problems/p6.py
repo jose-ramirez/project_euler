@@ -12,12 +12,11 @@
 #Find the difference between the sum of the squares of the
 #first one hundred natural numbers and the square of the sum.
 
-from utils import utils
-u = utils.Utils()
+from context import f
 
 def p6(n):
     a = [i ** 2 for i in range(1, n + 1)]
-    b = u.sum_up_to(n) ** 2
+    b = f.sum_up_to(n) ** 2
     return b - sum(a)
 
-print p6(100)
+print(p6(100))
