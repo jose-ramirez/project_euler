@@ -1,2 +1,1 @@
-Compilacion de problemas realizados de Project Euler. En
-Python (principalmente, depende de mi capricho).
+These are some of the problems I've solved from the [Project Euler](projecteuler.net) site. For now, it's all in Python.
