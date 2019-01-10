@@ -10,7 +10,7 @@
 # How many composite integers, n < 10^8, have precisely two,
 # not necessarily distinct, prime factors?
 
-from context import Utils
+from euler.utils import Utils
 from math import sqrt
 from bisect import bisect
 

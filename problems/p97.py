@@ -8,7 +8,7 @@
 #
 # Find the last ten digits of this prime number.
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def p97():

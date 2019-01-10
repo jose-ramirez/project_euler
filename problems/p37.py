@@ -10,7 +10,7 @@
 #NOTE: 2, 3, 5, and 7 are not considered to be truncatable
 #primes.
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def is_right_truncatable(p, u, sieve):
@@ -37,6 +37,6 @@ def p37():
         if a and b:
             total += p
     #we have to ignore 2, 3, 5, and 7, which sum up to 17:
-    print(total - 17)
+    return total - 17
 
-u.exec_time(p37)
+print(p37())

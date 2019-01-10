@@ -20,8 +20,8 @@
 # NOTE: The first two examples in the file represent the
 # triangles in the example given above.
 
-# from context import Utils
-from context import Triangle, Point
+from euler.geom.triangle import Triangle
+from euler.geom.point import Point
 
 def p102():
     total = 0

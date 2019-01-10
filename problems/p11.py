@@ -27,7 +27,7 @@
 #What is the greatest product of four adjacent numbers in any
 #direction (up, down, left, right, or diagonally) in the 20 x 20 grid?
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def p11():

@@ -3,7 +3,7 @@
 #
 #What is the 10 001st prime number?
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def p7():

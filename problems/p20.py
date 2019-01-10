@@ -4,7 +4,7 @@
 #and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 #
 #Find the sum of the digits in the number 100!
-from context import f
+import euler.numbers.functions as f
 
 def p20():
     m = map(int, str(f.factorial(100)))

@@ -12,7 +12,7 @@
 # Find the least value of n for which the remainder first
 # exceeds 10^10.
 
-from context import Utils
+from euler.utils import Utils
 
 u = Utils()
 

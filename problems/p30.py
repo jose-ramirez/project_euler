@@ -12,7 +12,7 @@
 #Find the sum of all the numbers that can be written as the
 #sum of fifth powers of their digits.
 
-from context import f
+import euler.numbers.functions as f
 
 def p30():
     total = 0

@@ -7,7 +7,7 @@
 #
 #How many circular primes are there below one million?
 
-from context import Utils
+from euler.utils import Utils
 
 def cyclic_shifts_of(str_num):
     m = len(str_num)
@@ -40,8 +40,4 @@ def p35():
             count += 1
     return count
 
-def exec_():
-    print(p35())
-
-u = Utils()
-u.exec_time(exec_)
+print(p35())

@@ -10,8 +10,8 @@
 # which their sum and difference are pentagonal and D =
 # |Pk − Pj| is minimised; what is the value of D?
 
-from context import f
-from context import Utils
+import euler.numbers.functions as f
+from euler.utils import Utils
 
 def p44():
     u = Utils()

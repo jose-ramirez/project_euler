@@ -6,7 +6,7 @@
 #(Please note that the palindromic number, in either base, may not include
 #leading zeros.)
 
-from context import Utils
+from euler.utils import Utils
 
 u = Utils()
 

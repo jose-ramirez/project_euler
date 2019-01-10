@@ -15,11 +15,10 @@
 # How many, not necessarily distinct, values of nCr, for
 # 1 <= n <= 100, are greater than one-million?
 
-from context import Utils
-u = Utils()
+import euler.numbers.functions as f
 
-def p53():    
-    mat, val = u.binom(100, 100)
+def p53():
+    mat, val = f.binom(100, 100)
     total = 0
     for r in range(len(mat)):
         for c in range(len(mat[0])):

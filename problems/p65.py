@@ -27,7 +27,7 @@
 # Find the sum of digits in the numerator of the 100th
 # convergent of the continued fraction for e.
 
-from context import f
+import euler.numbers.functions as f
 
 def p65():
     a = [1, 1]

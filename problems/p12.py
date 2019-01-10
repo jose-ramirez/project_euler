@@ -20,7 +20,7 @@
 #What is the value of the first triangle number to have over five
 #hundred divisors?
 
-from context import f
+import euler.numbers.functions as f
 
 def p12(num_divisors):
     i = 1

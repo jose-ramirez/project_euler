@@ -5,7 +5,7 @@
 # exactly two million rectangles, find the area of the grid
 # with the nearest solution.
 
-from context import Utils
+from euler.utils import Utils
 
 u = Utils()
 

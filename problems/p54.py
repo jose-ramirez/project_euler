@@ -31,7 +31,7 @@
 #        Highest card Ace   Highest card Queen
 
 # 3       2D 9C AS AH AC      3D 6D 7D TD QD    Player 2
-#           Three Aces      Flush with Diamonds   
+#           Three Aces      Flush with Diamonds
 
 # 4       4D 6S 9H QH QC      3D 6D 7H QD QS    Player 1
 #         Pair of Queens      Pair of Queens
@@ -50,7 +50,7 @@
 
 # How many hands does Player 1 win?
 
-from context import poker
+from euler import poker
 
 def p54():
     with open('data/p054_poker.txt') as file:

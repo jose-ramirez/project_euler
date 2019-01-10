@@ -7,7 +7,7 @@
 # Note: as 1! = 1 and 2! = 2 are not sums they are not
 # included.
 
-from context import f
+import euler.numbers.functions as f
 
 # Hasta 10^6, porque ya se cuanto da la suma, y no necesito
 # llegar tan lejos; pero en realidad hay que testar hasta

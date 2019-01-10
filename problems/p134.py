@@ -8,7 +8,7 @@
 #
 # Find S for every pair of consecutive primes with 5 <= p1 <= 1000000.
 
-from utils import Utils
+from euler.utils import Utils
 u = Utils()
 
 a = u.sieve(1100000)
@@ -17,14 +17,14 @@ def phi(n):
     """
         It is assumed that n is a power of 10.
     """
-    return (2 * n) / 5
+    return (2 * n) // 5
 
 def f1(p1, p2):
     m = len(str(p1))
     r = 10 ** m
     q = phi(r) - 1
     s = pow(p2, q, r)
-    return ((((p1 * p2 * s) / r) % p2) * r) + p1
+    return ((((p1 * p2 * s) // r) % p2) * r) + p1
 
 def p134():
     l = [f1(a[i], a[i + 1]) for i in range(2, len(a) - 1) if a[i] < 10 ** 6]

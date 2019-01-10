@@ -9,7 +9,7 @@
 # What is the first value which can be written as the sum of primes in over five
 # thousand different ways?
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 """

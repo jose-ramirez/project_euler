@@ -3,7 +3,7 @@
 #
 #Find the largest palindrome made from the product of two 3-digit numbers.
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def p4():

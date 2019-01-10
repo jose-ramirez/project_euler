@@ -19,7 +19,7 @@
 # Find sum(c) for c < 120000.
 
 from fractions import gcd
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def hit(a, b, c, rad):

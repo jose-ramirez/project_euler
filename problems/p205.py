@@ -4,10 +4,10 @@
 # Peter and Colin roll their dice and compare totals: the highest total wins. The
 # result is a draw if the totals are equal.
 #
-# What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer 
+# What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer
 # rounded to seven decimal places in the form 0.abcdefg
 
-from context import Poly
+from euler.algebra.poly import Poly
 def p205():
   peter = Poly([1,1,1,1,0]).pow(9)
   colin = Poly([1,1,1,1,1,1,0]).pow(6)

@@ -19,7 +19,7 @@
 # Give your answer as a fraction p/q in reduced form.
 
 from fractions import Fraction
-from context import Utils
+from euler.utils import Utils
 
 u = Utils()
 

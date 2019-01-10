@@ -22,7 +22,7 @@
 # Find the value of D ≤ 1000 in minimal solutions of x for which the largest
 # value of x is obtained.
 
-from context import pell
+from euler.numbers import pell
 
 def p66():
     solutions = [(D, pell.min_sol(D)[0]) for D in range(2, 1001) if not pell.is_square(D)]

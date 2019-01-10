@@ -11,7 +11,7 @@
 # How many different ways can one hundred be written as a sum
 # of at least two positive integers?
 
-from context import Utils
+from euler.utils import Utils
 
 u = Utils()
 

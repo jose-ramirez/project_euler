@@ -45,7 +45,9 @@
 # + n^10.
 # Find the sum of FITs for the BOPs.
 
-from context import Utils
+import euler.numbers.functions as f
+from euler.utils import Utils
+
 u_ = Utils()
 m, val = u_.binom(11,11)
 
@@ -54,11 +56,11 @@ def u(n):
         n ** 7 + n ** 6 - n ** 5 + \
         n ** 4 - n ** 3 + n ** 2 - \
         n + 1
-        
+
 U = [u(j) for j in range(1, 12)]
 
 def fit(n):
-    l = [((-1) ** (p + (n % 2))) * 
+    l = [((-1) ** (p + (n % 2))) *
         m[n][p - 1] * U[p - 1] for p in range(1, n + 1)]
     return sum(l)
 

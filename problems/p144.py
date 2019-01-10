@@ -30,10 +30,11 @@
 # How many times does the beam hit the internal surface of
 # the white cell before exiting?
 
-from context import Utils, Point, Line, Ellipse
 import math
+from euler.geom.ellipse import Ellipse
+from euler.geom.point import Point
+from euler.geom.line import Line
 
-u = Utils()
 e = Ellipse(5.0, 10.0)
 
 def get_line(p1, p2):

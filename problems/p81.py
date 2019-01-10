@@ -13,7 +13,7 @@
 # by 80 matrix, from the top left to the bottom right by only moving right
 # and down.
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def p81():

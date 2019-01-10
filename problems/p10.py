@@ -2,7 +2,7 @@
 #
 #Find the sum of all the primes below two million.
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def p10():

@@ -11,7 +11,7 @@
 # How many primes below one million have this remarkable
 # property?
 
-from context import Utils
+from euler.utils import Utils
 
 cube_list = [x ** 3 for x in range(578)]
 u = Utils()

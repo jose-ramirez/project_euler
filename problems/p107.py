@@ -20,8 +20,8 @@
 # find the maximum saving which can be achieved by removing redundant edges
 # whilst ensuring that the network remains connected.
 
-from context import Utils
-from context import kruskal
+from euler.utils import Utils
+from euler.algorithms import kruskal
 u = Utils()
 
 def f1(r):
@@ -39,7 +39,7 @@ def get_edges(mat):
         for j in range(len(mat[0])) if mat[i][j] != 0]
 
 def p107():
-    with open('data/network.txt') as file: 
+    with open('data/network.txt') as file:
         lines = file.readlines()
         adj_mat = [f1(row) for row in lines]
         total = sum([sum(adj_mat[i]) for i in range(len(adj_mat))]) // 2

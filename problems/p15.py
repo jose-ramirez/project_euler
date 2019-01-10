@@ -3,7 +3,7 @@
 #
 #How many such routes are there through a 20x20 grid?
 
-from context import f
+import euler.numbers.functions as f
 
 def p15():
     mat, val = f.binom(40, 20)

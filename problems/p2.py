@@ -6,7 +6,7 @@
 #By considering the terms in the Fibonacci sequence whose values do not
 #exceed four million, find the sum of the even-valued terms.
 
-from context import f
+import euler.numbers.functions as f
 
 def p2(m):
     a = f.fib(m)

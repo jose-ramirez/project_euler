@@ -14,7 +14,7 @@
 # NOTE: This problem is an easier version of Problem 110; it
 # is strongly advised that you solve this one first.
 
-from context import Utils
+from euler.utils import Utils
 
 u = Utils()
 

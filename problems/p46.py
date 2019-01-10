@@ -13,7 +13,7 @@
 # What is the smallest odd composite that cannot be written as the sum of a
 # prime and twice a square?
 
-from context import Utils
+from euler.utils import Utils
 
 def p46():
 	#getting precalculated primes and squares:

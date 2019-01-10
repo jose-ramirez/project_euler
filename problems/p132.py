@@ -6,7 +6,7 @@
 #
 # Find the sum of the first forty prime factors of R(10^9).
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def p132():

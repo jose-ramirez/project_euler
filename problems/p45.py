@@ -10,7 +10,7 @@
 #Find the next triangle number that is also pentagonal and
 #hexagonal.
 
-from context import f
+import euler.numbers.functions as f
 
 def p45():
     a, b = 1, 1

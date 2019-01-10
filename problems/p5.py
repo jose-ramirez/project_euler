@@ -4,7 +4,7 @@
 #What is the smallest positive number that is evenly divisible
 #by all of the numbers from 1 to 20?
 
-from context import f
+import euler.numbers.functions as f
 import functools as ft
 
 def p5():

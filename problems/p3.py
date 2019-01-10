@@ -2,7 +2,7 @@
 #
 #What is the largest prime factor of the number 600851475143 ?
 
-from context import Utils
+from euler.utils import Utils
 u = Utils()
 
 def p3(n):
