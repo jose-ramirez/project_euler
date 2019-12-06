@@ -5,9 +5,8 @@
 # exactly two million rectangles, find the area of the grid
 # with the nearest solution.
 
-from euler.utils import Utils
+import euler.numbers.functions as f
 
-u = Utils()
 
 def p85():
     MAX_W = 100
@@ -15,7 +14,7 @@ def p85():
     min_w = 100
     min_h = 100
     min_d = 10 ** 9
-    mat, val = u.binom(MAX_W, MAX_H)
+    mat, val = f.binom(MAX_W, MAX_H)
     for w in range(MAX_W):
         for h in range(w, MAX_H):
             d = abs(2000000 - mat[w + 1][2] * mat[h + 1][2])
@@ -23,5 +22,6 @@ def p85():
                 min_w, min_h, min_d = w, h, d
 
     return min_w, min_h, min_d, min_w * min_h
+
 
 print(p85()[3])
