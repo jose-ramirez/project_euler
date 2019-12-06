@@ -29,4 +29,6 @@ def p307():
     return 1 - total_prob
 
 
+# This still has rounding error though; I had to find another way of finding out
+# what was wrong (the last decimal was off)
 print(p307())
