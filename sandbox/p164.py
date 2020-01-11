@@ -9,10 +9,9 @@ def time_taken(f):
     return processing
 
 def validate(n,k):
-    total = 0
     num_string = str(n)
     num_digits = len(num_string)
-    digits = list(map(int, num_string))
+    digits = [int(n) for n in num_string]
     if num_digits < 3:
         return False
     else:

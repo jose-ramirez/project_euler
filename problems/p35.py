@@ -20,7 +20,7 @@ def cyclic_shifts_of(str_num):
         str_num = c
         l.append(c)
         i += 1
-    return list(map(int, l))
+    return [int(n) for n in l]
 
 def all_in(l1, l2, u):
     u = Utils()

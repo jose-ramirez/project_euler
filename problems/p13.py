@@ -2,7 +2,8 @@
 #numbers (in data/numbers.txt).
 
 def p13():
-    f = open("data/numbers.txt", "r")
-    return str(sum(list(map(int, f.readlines()))))[:10]
+    with open("data/numbers.txt", "r") as f:
+        values = [int(v) for v in f.readlines()]
+        return str(sum(values))[:10]
 
 print(p13())

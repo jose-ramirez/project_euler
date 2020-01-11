@@ -29,7 +29,7 @@ def p102():
 
     with open('data/p102_triangles.txt', 'r') as file:
         for line in file.readlines():
-            coordinates = list(map(int, line.split(',')))
+            coordinates = [int(v) for v in line.split(',')]
 
             a, b, c = \
                 Point(coordinates[:2]), \

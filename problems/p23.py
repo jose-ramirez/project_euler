@@ -19,9 +19,8 @@
 # the sum of two abundant numbers.
 
 def get_abundants(n):
-    abundants = []
     with open('data/abundants.txt', 'r') as abundants_txt:
-        return list(map(int, abundants_txt.readlines()[0].split(', ')))
+        return [int(n) for n in abundants_txt.readlines()[0].split(', ')]
 
 abundants = get_abundants(28123)
 

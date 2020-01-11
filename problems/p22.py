@@ -1,6 +1,6 @@
 # Using names.txt (right click and 'Save Link/Target As...'), a 46K text file
 # containing over five-thousand first names, begin by sorting it into alphabetical
-#  order. Then working out the alphabetical value for each name, multiply this
+# order. Then working out the alphabetical value for each name, multiply this
 # value by its alphabetical position in the list to obtain a name score.
 #
 # For example, when the list is sorted into alphabetical order, COLIN, which is
@@ -20,8 +20,7 @@ def p22(filename):
     for line in names:
         line.sort()
         for name in line:
-            score = (line.index(name) + 1) * sum([p.index(name[i]) + 1 
-                                            for i in range(len(name))])
+            score = (line.index(name) + 1) * sum([p.index(name[i]) + 1 for i in range(len(name))])
             total += score
     return total
 

@@ -51,6 +51,6 @@ def p11():
     l4 = [[mat[i][j + 3] * mat[i + 1][j + 2] * mat[i + 2][j + 1] * mat[i + 3][j] \
     for j in range(n - 3)] for i in range(m - 3)]
 
-    return max(list(map(lambda r: max(map(max, r)) , [l1, l2, l3, l4])))
+    return max([max(map(max, r)) for r in [l1, l2, l3, l4]])
 
 print(p11())

@@ -24,29 +24,17 @@ from euler.utils import Utils
 from euler.algorithms import kruskal
 u = Utils()
 
-def f1(r):
-    a = r.split(',')
-    return [f2(x) for x in a]
-
-def f2(p):
-    if p == '-' or p == '-\n':
-        return 0
-    else:
-        return int(p)
-
 def get_edges(mat):
     return [[i, j, mat[i][j]] for i in range(len(mat))
         for j in range(len(mat[0])) if mat[i][j] != 0]
 
 def p107():
-    with open('data/network.txt') as file:
-        lines = file.readlines()
-        adj_mat = [f1(row) for row in lines]
-        total = sum([sum(adj_mat[i]) for i in range(len(adj_mat))]) // 2
-        nodes = range(len(adj_mat))
-        edges = get_edges(adj_mat)
-        tree = kruskal.min_span_tree(nodes, edges)
-        s = sum([tree[i][2] for i in range(len(tree))])
-        return total - s
+    adj_mat = u.to_matrix('data/network.txt', separator=',')
+    total = sum([sum(adj_mat[i]) for i in range(len(adj_mat))]) // 2
+    nodes = range(len(adj_mat))
+    edges = get_edges(adj_mat)
+    tree = kruskal.min_span_tree(nodes, edges)
+    s = sum([tree[i][2] for i in range(len(tree))])
+    return total - s
 
 print(p107())

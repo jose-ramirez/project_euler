@@ -26,7 +26,7 @@ u = Utils()
 
 def p8():
     n = u.to_number('data/number.in')
-    l = list(map(int, str(n)))
+    l = [int(n) for n in str(n)]
     return max([l[i] * l[i + 1] * l[i + 2] * l[i + 3] * l[i + 4] \
            for i in range(996)])
 

@@ -5,9 +5,9 @@
 #words, how many letters would be used?
 
 def p17():
-    one_to_nine = list(map(len, ["one", "two","three","four", "five", "six", "seven", "eight", "nine"]))
-    ten_to_nineteen = list(map(len, ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]))
-    twenty_to_ninety = list(map(len, ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]))
+    one_to_nine = [len(s) for s in ["one", "two","three","four", "five", "six", "seven", "eight", "nine"]]
+    ten_to_nineteen = [len(s) for s in ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]]
+    twenty_to_ninety = [len(s) for s in ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]]
 
     one_to_ninety_nine = sum(ten_to_nineteen) + 9 * sum(one_to_nine) + 10 * sum(twenty_to_ninety)
 
